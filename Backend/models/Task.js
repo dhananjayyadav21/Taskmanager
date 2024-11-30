@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const TaskSchema = new Schema({
     user:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'user'
+        ref:'users'
     },
     priority:{
         type:String,
@@ -17,16 +17,16 @@ const TaskSchema = new Schema({
     description:{
         type:String,
     },
-    deadline:{
-        type:Date,
-        deadline:new Date
-    },
     status:{
         type:String,
         required:true
     },
+    deadline:{
+        type:Date,
+        deadline:new Date
+    },
     assigned:{
-        type:mongoose.Schema.Types.ObjectId,
+        type:String,
         ref:'user'
     }
 });

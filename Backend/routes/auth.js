@@ -28,7 +28,7 @@ router.post(
     // if accured validation errors , send bad request
     const validationErrors = validationResult(req);
     if (!validationErrors.isEmpty())
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ errors: validationErrors.array() });
 
     try {
       const userReqBody = req.body;
@@ -83,7 +83,7 @@ router.post(
     // if accured validation errors , send bad request
     const validationErrors = validationResult(req);
     if (!validationErrors.isEmpty())
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ errors: validationErrors.array() });
 
     try {
       const { email, password} = req.body;
