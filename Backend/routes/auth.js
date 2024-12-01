@@ -128,8 +128,21 @@ router.post('/getUser',fetchUser, async (req,res)=>{
     
     //find user details from db
     let userId = req.user.id;
-    console.log(userId);
+
     const user = await User.findById(userId).select('-password');
+    res.send(user);
+
+  } catch (error) {
+    console.error(error.message);
+      res.status(500).send("some internal server error accrued");
+  }
+})
+
+//getdetails of user using POST:/api/auth/getUser ==========================================================
+router.get('/getAllUser', async (req,res)=>{
+  try {
+   
+    const user = await User.find().select('-password');
     res.send(user);
 
   } catch (error) {
