@@ -1,4 +1,6 @@
+import HttpService from "./httpservice";
 export class SharedServive{
+
     static getClassPriority = (priority)=>{
         // eslint-disable-next-line
         switch (priority) {

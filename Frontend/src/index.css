@@ -8,7 +8,7 @@ body {
 }
 
 .bg-color-gray{
-  background: #c1c1c1;
+  background: #f0efef;
 }
 
 .bg-blue{
@@ -19,3 +19,23 @@ body {
 .bg-white{
   background: #ffffff;
 }
+
+ /* General container styling */
+        .scrollable {
+            overflow-y: scroll;
+        }
+
+        /* Slim scrollbar styling for WebKit browsers */
+        .scrollable::-webkit-scrollbar {
+            width: 2px; /* Slim width */
+        }
+
+        .scrollable::-webkit-scrollbar-thumb:hover {
+            background: #555; /* Thumb hover color */
+        }
+
+        /* Slim scrollbar styling for Firefox */
+        .scrollable {
+            scrollbar-width: thin; /* Slim width */
+            scrollbar-color: #888 #e0e0e0; /* Thumb and track colors */
+        }

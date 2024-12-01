@@ -36,9 +36,9 @@ const Sidebar = () => {
         <div className="row">
           <div className="col-12">
             {/* progress details card container */}
-            <div className="row gap-3">
+            <div className="row gap-2">
               <div className="col-12">
-                <div className="bg-color-gray border rounded-4 shadow-sm p-3">
+                <div className="bg-color-gray border rounded-4 shadow-sm p-4">
                   <div className="btn btn-danger rounded-circle mb-2">
                     <i className="fa-solid fa-calendar-xmark"></i>
                   </div>
@@ -70,7 +70,7 @@ const Sidebar = () => {
               </div>
 
               <div className="col-12">
-                <div className="bg-color-gray border rounded-4 shadow-sm p-3">
+                <div className="bg-color-gray border rounded-4 shadow-sm p-4">
                   <div className="btn btn-primary rounded-circle mb-2">
                     <i className="fa-regular fa-clock"></i>
                   </div>
@@ -96,7 +96,6 @@ const Sidebar = () => {
 
             {/* Add New Task Modal */}
             <div>
-              {/* Add Task     */}
               <div
                 className="modal fade"
                 id="exampleModalToggle"
@@ -105,13 +104,12 @@ const Sidebar = () => {
                 tabIndex="-1"
               >
                 <div className="modal-dialog modal-dialog-centered">
-                  <div className="modal-content">
+                  <div className="bg-color-gray p-2 modal-content">
                     <div className="modal-header">
                       <span className="btn btn-warning rounded-circle p-1 mx-2"></span>
                       <h1
                         className="modal-title fs-5"
-                        id="exampleModalToggleLabel"
-                      >
+                        id="exampleModalToggleLabel" >
                         Add New Task
                       </h1>
                       <button

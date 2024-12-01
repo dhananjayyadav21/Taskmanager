@@ -24,7 +24,7 @@ const Task = () => {
           <div className="col-md-4">
             <div
               className="bg-color-gray p-2 rounded-4"
-              style={{ height: "82vh" }} >
+              style={{ height: "86vh" }} >
               <div className="d-flex justify-content-center align-self-center align-items-center gap-2">
                 <span className="btn btn-primary rounded-circle p-1"></span>
                 <span>To Do</span>
@@ -33,8 +33,8 @@ const Task = () => {
               <hr />
 
               <div
-                className="container"
-                style={{ overflow: "auto", height: "87%" }}>
+                className="container scrollable"
+                style={{ overflow: "auto", height: "88%" }}>
                 <div className="row gap-2">
                   {/* each Task card */}
                   {alltask.filter(task=>task.status==="To Do").map((task)=>{
@@ -50,7 +50,7 @@ const Task = () => {
           <div className="col-md-4">
             <div
               className="bg-color-gray p-2 rounded-4"
-              style={{ height: "82vh" }}  >
+              style={{ height: "86vh" }}  >
               <div className="d-flex justify-content-center align-self-center align-items-center gap-2">
                 <span className="btn btn-warning rounded-circle p-1"></span>
                 <span>On Progress</span>
@@ -59,8 +59,8 @@ const Task = () => {
               <hr />
 
               <div
-                className="container"
-                style={{ overflow: "auto", height: "87%" }} >
+                className="container scrollable"
+                style={{ overflow: "auto", width:"100%", height: "88%" }} >
                 <div className="row gap-2">
                   {/* each Task card */}
                   {alltask.filter(task=>task.status==="On Progress").map((task)=>{
@@ -76,7 +76,7 @@ const Task = () => {
           <div className="col-md-4">
             <div
               className="bg-color-gray p-2 rounded-4"
-              style={{ height: "82vh" }} >
+              style={{ height: "86vh" }} >
               <div className="d-flex justify-content-center align-self-center align-items-center gap-2">
                 <span className="btn btn-success rounded-circle p-1"></span>
                 <span>Done</span>
@@ -85,8 +85,8 @@ const Task = () => {
               <hr />
 
               <div
-                className=" container"
-                style={{ overflow: "auto", height: "87%" }} >
+                className=" container scrollable"
+                style={{ overflow: "auto", height: "88%" }} >
                 <div className="row gap-2">
                   {/* each Task card */}
                   {alltask.filter(task=>task.status==="Done").map((task)=>{

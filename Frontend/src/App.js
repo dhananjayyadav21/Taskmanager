@@ -5,6 +5,7 @@ import Login from "./pages/login";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import TaskState from "./context/Task/TaskState";
+import Profile from "./components/Profile";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/Register" element={<Register />} />
+            <Route path="/user" element={<Profile/>} /> 
           </Routes>
         </Router>
       </TaskState>
