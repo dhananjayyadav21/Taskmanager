@@ -1,6 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import taskContext from "../context/Task/taskContext";
 
 const TaskIteamsCard = () => {
+
+  const context = useContext(taskContext);
+  //  const { task, setTask} = context;
+
+   console.log(context);
+
   let listOfTask = [
     {
       title: "Test334",
@@ -10,11 +17,11 @@ const TaskIteamsCard = () => {
     },
   ];
 
-  const [task, setTask] = useState(listOfTask);
+  const [taskh, setTaskh] = useState(listOfTask);
 
   return (
     <>
-      {task.map((e) => {
+      {taskh.map((e) => {
         return (
           <div className="col-12">
             <div className="bg-white border rounded-4 shadow-sm  p-3">
