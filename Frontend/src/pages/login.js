@@ -12,28 +12,32 @@ const Login = () => {
   const handleFormSumbit = async (e) => {
     e.preventDefault();
 
-    // post form data on server for check credentials
-    const response = await fetch("http://localhost:5000/api/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: credentials.email,
-        password: credentials.password,
-      }),
-    });
+    try {
+      // post form data on server for check credentials
+      const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: credentials.email,
+          password: credentials.password,
+        }),
+      });
 
-    const json = await response.json();
-    console.log(json)
+      const json = await response.json();
+      console.log(json);
 
-    //if credentials right then navigatte main page
-    if (json.success) {
-      localStorage.setItem("token", json.AuthToken);
-      navigate('/')
-      alert("login successfully");
-    }else{
-      alert("plese try with right credentials");
+      //if credentials right then navigatte main page
+      if (json.success) {
+        localStorage.setItem("token", json.AuthToken);
+        navigate("/");
+        alert("login successfully");
+      } else {
+        alert("plese try with right credentials");
+      }
+    } catch (error) {
+      console.error(error.message);
     }
   };
 

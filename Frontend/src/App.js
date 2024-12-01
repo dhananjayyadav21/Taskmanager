@@ -4,10 +4,12 @@ import Home from "./pages/Home";
 import Login from "./pages/login";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
+import TaskSytate from "./context/Task/TaskSytate";
 
 function App() {
   return (
     <>
+     <TaskSytate/>
       <Router>
         <Navbar/>
         <Routes>
@@ -16,6 +18,7 @@ function App() {
           <Route path="/Register" element={<Register />} />
         </Routes>
       </Router>
+      <TaskSytate/>
 
     </>
   );

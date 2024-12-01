@@ -39,6 +39,7 @@ const Register = () => {
       //if success fully register user authtoken store in localstorage and navigate login page
       if (json.success) {
         localStorage.setItem("token", json.AuthToken);
+        navigate("/login");
         alert("Register successfully");
       } else {
         alert("plese try with right credentials");

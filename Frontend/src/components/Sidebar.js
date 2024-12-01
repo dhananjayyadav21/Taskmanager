@@ -44,42 +44,42 @@ const Sidebar = () => {
                 <div>
                       
                   {/* Add Task     */}
-                  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                    <div class="modal-dialog modal-dialog-centered">
-                      <div class="modal-content">
-                        <div class="modal-header">
+                  <div className="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabIndex="-1">
+                    <div className="modal-dialog modal-dialog-centered">
+                      <div className="modal-content">
+                        <div className="modal-header">
                           <span className="btn btn-warning rounded-circle p-1 mx-2"></span> 
-                          <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Add New Task</h1>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          <h1 className="modal-title fs-5" id="exampleModalToggleLabel">Add New Task</h1>
+                          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div className="modal-body">
                           <div className="d-flex justify-content-between align-items-center">
                           <h4 className="mx-4">Task1</h4>
-                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                          <i className="fa-solid fa-ellipsis-vertical"></i>
                           </div>
                           <hr />
                           <p className="mx-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ducimus hic error mollitia asperiores distinctio, culpa dignissimos iste labore? Nisi modi eligendi iusto esse accusamus eaque quas, rerum ratione repellat? Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ducimus hic error mollitia asperiores distinctio, culpa dignissimos iste labore? Nisi modi eligendi iusto esse accusamus eaque quas, rerum ratione repellat? Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ducimus hic error mollitia asperiores distinctio, culpa dignissimos iste labore? Nisi modi eligendi iusto esse accusamus eaque quas, rerum ratione repellat?</p> 
                         </div>
-                        <div class="modal-footer">
-                          <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
+                        <div className="modal-footer">
+                          <button className="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   {/* Thank you your task added */}
-                  <div class="modal fade rounded-4 " id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                    <div class="modal-dialog modal-dialog-centered">
-                      <div class="modal-content">
-                        <div class="modal-body p-4 d-flex-coulm align-self-center align-items-center  ">
+                  <div className="modal fade rounded-4 " id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabIndex="-1">
+                    <div className="modal-dialog modal-dialog-centered">
+                      <div className="modal-content">
+                        <div className="modal-body p-4 d-flex-coulm align-self-center align-items-center  ">
                           <button className="btn btn-dark rounded-4 py-4 px-3">Done</button>
                           <h5>New task has been created succesfully</h5>
-                          <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+                          <button className="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <button class="btn btn-primary d-none" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Open first modal</button>
+                  <button className="btn btn-primary d-none" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Open first modal</button>
 
                 </div>
 
