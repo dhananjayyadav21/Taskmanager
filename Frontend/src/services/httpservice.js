@@ -1,4 +1,5 @@
 class HttpService{
+
     static GET = async (url) => {
         try {
           const responce = await fetch(url, {
@@ -16,13 +17,15 @@ class HttpService{
         }
       };
 
-      POST = async (url,data=null) => {
+     static POST = async (url,data) => {
         try {
           const responce = await fetch(url, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
+              "AuthToken": localStorage.getItem("token")
             },
+            body: JSON.stringify(data),
           });
       
           const json = await responce.json();
@@ -32,6 +35,7 @@ class HttpService{
           throw error;
         }
       };
+
 }
 
 export default HttpService;

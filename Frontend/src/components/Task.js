@@ -19,12 +19,12 @@ const Task = () => {
       {/* Main container for Task */}
       <div className="container">
         <div className="row gap-md-0 gap-3">
+
           {/* Inside the main container to do container */}
           <div className="col-md-4">
             <div
               className="bg-color-gray p-2 rounded-4"
-              style={{ height: "82vh" }}
-            >
+              style={{ height: "82vh" }} >
               <div className="d-flex justify-content-center align-self-center align-items-center gap-2">
                 <span className="btn btn-primary rounded-circle p-1"></span>
                 <span>To Do</span>
@@ -34,8 +34,7 @@ const Task = () => {
 
               <div
                 className="container"
-                style={{ overflow: "auto", height: "87%" }}
-              >
+                style={{ overflow: "auto", height: "87%" }}>
                 <div className="row gap-2">
                   {/* each Task card */}
                   {alltask.filter(task=>task.status==="To Do").map((task)=>{
@@ -51,8 +50,7 @@ const Task = () => {
           <div className="col-md-4">
             <div
               className="bg-color-gray p-2 rounded-4"
-              style={{ height: "82vh" }}
-            >
+              style={{ height: "82vh" }}  >
               <div className="d-flex justify-content-center align-self-center align-items-center gap-2">
                 <span className="btn btn-warning rounded-circle p-1"></span>
                 <span>On Progress</span>
@@ -62,8 +60,7 @@ const Task = () => {
 
               <div
                 className="container"
-                style={{ overflow: "auto", height: "87%" }}
-              >
+                style={{ overflow: "auto", height: "87%" }} >
                 <div className="row gap-2">
                   {/* each Task card */}
                   {alltask.filter(task=>task.status==="On Progress").map((task)=>{
@@ -74,12 +71,12 @@ const Task = () => {
             </div>
           </div>
 
+
           {/* Inside the main container completed container */}
           <div className="col-md-4">
             <div
               className="bg-color-gray p-2 rounded-4"
-              style={{ height: "82vh" }}
-            >
+              style={{ height: "82vh" }} >
               <div className="d-flex justify-content-center align-self-center align-items-center gap-2">
                 <span className="btn btn-success rounded-circle p-1"></span>
                 <span>Done</span>
@@ -89,8 +86,7 @@ const Task = () => {
 
               <div
                 className=" container"
-                style={{ overflow: "auto", height: "87%" }}
-              >
+                style={{ overflow: "auto", height: "87%" }} >
                 <div className="row gap-2">
                   {/* each Task card */}
                   {alltask.filter(task=>task.status==="Done").map((task)=>{
