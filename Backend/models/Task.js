@@ -8,7 +8,7 @@ const TaskSchema = new Schema({
     },
     priority:{
         type:String,
-        required:true
+        default:"low"
     },
     title:{
         type:String,
@@ -19,11 +19,11 @@ const TaskSchema = new Schema({
     },
     status:{
         type:String,
-        required:true
+        default:"To Do"
     },
     deadline:{
-        type:Date,
-        deadline:new Date
+        type: Date,
+        default: Date.now
     },
     assigned:{
         type:String,
