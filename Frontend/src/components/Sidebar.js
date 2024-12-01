@@ -1,6 +1,12 @@
-import React from "react";
+import React,{useContext} from "react";
+import taskContext from "../context/Task/taskContext";
 
 const Sidebar = () => {
+
+  // get context function using context api
+  const context = useContext(taskContext);
+  const { alltask} = context;
+
   return (
     <>
         <div>
@@ -15,7 +21,7 @@ const Sidebar = () => {
                       <i className="fa-solid fa-calendar-xmark"></i>
                   </div>
                   <p className="fw-bold mb-0 py-2">Expired Task</p>
-                  <span className="fw-bold fs-4">5</span>
+                  <span className="fw-bold fs-4">{alltask.filter((task)=>{return task.status === "To Do"}).length}</span>
                 </div>
               </div>
 
@@ -25,7 +31,7 @@ const Sidebar = () => {
                       <i className="fa-solid fa-bars-progress"></i>
                   </div>
                   <p className="fw-bold mb-0 py-2">All Active Task</p>
-                  <span className="fw-bold fs-4">7</span>
+                  <span className="fw-bold fs-4">{alltask.filter((task)=>{return task.status === "On Progress"}).length}</span>
                 </div>
               </div>
 
@@ -35,7 +41,7 @@ const Sidebar = () => {
                       <i className="fa-regular fa-clock"></i>
                   </div>
                   <p className="fw-bold mb-0 py-2">Completed Task</p>
-                  <span className="fw-bold fs-4">2/</span><span className="fw-bold">7</span>
+                  <span className="fw-bold fs-4">{alltask.filter((task)=>{return task.status === "On Progress"}).length}/</span><span className="fw-bold">{alltask.filter((task)=>{return task}).length}</span>
                 </div>
               </div>
             </div>

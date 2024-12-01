@@ -23,16 +23,34 @@ const Navbar = () => {
                     />
                   </div>
 
+                 
+
                  {/* handle when user login show logout btn as wll as login btn */}
                   <div className="d-flex gap-2">
                   {!localStorage.getItem("token") ? 
                   (<><Link className="btn btn-warning mx-1 rounded-4" to="/login"> login </Link>
                       <Link className="btn btn-warning mx-1 rounded-4" to="/Register"> Sign</Link>
                    </>) : 
-                  (<><Link to="/user"  className="btn btn-danger mx-1 rounded-4" >
-                        <i className="fa-solid fa-user-shield"></i>
-                      </Link>
-                      <Link className="btn btn-danger mx-1 rounded-4" > Log Out  </Link>
+                  (<>
+                  
+                    <div class="dropdown">
+                      <button class="btn btn-danger rounded-5 py-2 px-2  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i className="fa-solid fa-user-shield"></i>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li>
+                          <Link to="/user" >
+                            <i className="fa-solid fa-user-shield m-2"></i>
+                           </Link> <span>view profile</span>
+                        </li>
+                        <li> 
+                          <Link ><i class="fa-solid fa-right-from-bracket m-2"></i></Link><span>Logout</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                  
+                     
                     </>
                   )}
                     </div>
