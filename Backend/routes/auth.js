@@ -36,6 +36,7 @@ router.post(
       // if user alrady register withi this email
       let user = await User.findOne({ email: userReqBody.email });
       if (user) {
+        success = false;
         return res
           .status(400)
           .json({ error: "Alrady register with this email" });
@@ -59,8 +60,10 @@ router.post(
       };
 
       const AuthToken = jwt.sign(Data, AuthToken_Secrate);
-      res.send({AuthToken });
+      success = true;
+      res.send({success,AuthToken });
     } catch (error) {
+      success = false;
       console.error(error.message);
       res.status(500).send("some internal server error accrued");
     }
@@ -91,6 +94,7 @@ router.post(
       //check user exist or not
       let user = await User.findOne({email });
       if (!user) {
+        success = false;
         return res
           .status(400)
           .json({ error: "plese try with right credentials" });
@@ -98,6 +102,7 @@ router.post(
 
       const PasswordCompare = await bcrypt.compare(password, user.password );
       if (!PasswordCompare) {
+        success = false;
         return res
           .status(400)
           .json({ error: "plese try with right credentials" });
@@ -112,9 +117,11 @@ router.post(
        };
 
        const AuthToken = jwt.sign(Data, AuthToken_Secrate);
-       res.send({ AuthToken });
+       success = true;
+       res.send({success, AuthToken});
 
     } catch (error) {
+      success = false;
       console.error(error.message);
       res.status(500).send("some internal server error accrued");
     }
@@ -122,7 +129,7 @@ router.post(
 );
 
 
-//getdetails of user using POST:/api/auth/getUser ==========================================================
+//getdetails of user using 3. POST:/api/auth/getUser ==========================================================
 router.post('/getUser',fetchUser, async (req,res)=>{
   try {
     
@@ -130,22 +137,26 @@ router.post('/getUser',fetchUser, async (req,res)=>{
     let userId = req.user.id;
 
     const user = await User.findById(userId).select('-password');
+    success = true;
     res.send(user);
 
   } catch (error) {
+    success = false;
     console.error(error.message);
       res.status(500).send("some internal server error accrued");
   }
 })
 
-//getdetails of user using POST:/api/auth/getUser ==========================================================
+//get user of user using  4. POST:/api/auth/getAllUser ==========================================================
 router.get('/getAllUser', async (req,res)=>{
   try {
    
     const user = await User.find().select('-password');
+    success = true;
     res.send(user);
 
   } catch (error) {
+    success = false;
     console.error(error.message);
       res.status(500).send("some internal server error accrued");
   }
