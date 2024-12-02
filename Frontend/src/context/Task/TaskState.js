@@ -43,7 +43,7 @@ const TaskState = (props) => {
 
   //======================================== Delete task api call ===========================================
   const deleteTask = async (id) => {
-     // eslint-disable-next-line
+    // eslint-disable-next-line
     const json = await HttpService.DELETE(
       `http://localhost:5000/api/task/delete/${id}`
     );
@@ -51,11 +51,13 @@ const TaskState = (props) => {
     setTask(newTask);
   };
 
-  //define state for task ====================================================================================
+  //define state for task =================
   const [alltask, setTask] = useState([]);
 
   return (
-    <TaskContext.Provider value={{ alltask, getAllTask, addTask, updateTask, deleteTask }}>
+    <TaskContext.Provider
+      value={{ alltask, getAllTask, addTask, updateTask, deleteTask }}
+    >
       {props.children}
     </TaskContext.Provider>
   );

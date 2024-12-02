@@ -101,12 +101,12 @@ const Sidebar = () => {
 
                         <div className="mb-3">
                           <label htmlFor="title" className="form-label">  Task Title  </label>
-                          <input type="text" className="form-control" id="title" name="title" value={newTask.title}onChange={handleOnChange} aria-describedby="emailHelp" />
+                          <input type="text" className="form-control" id="title" name="title" value={newTask.title}onChange={handleOnChange} aria-describedby="emailHelp" minLength={5} required />
                         </div>
 
                         <div className="mb-3">
                           <label htmlFor="description" className="form-label">  Description </label>
-                          <textarea className="form-control" id="description" name="description" value={newTask.description} onChange={handleOnChange}  ></textarea>
+                          <textarea className="form-control" id="description" name="description" value={newTask.description} onChange={handleOnChange}  minLength={5} required  ></textarea>
                         </div>
 
                         <div className="container gap-3 d-md-flex mb-4">
@@ -129,36 +129,11 @@ const Sidebar = () => {
                           </div>
                         </div>
                         <div className="modal-footer">
-                          <button type="submit" className="btn btn-primary" data-bs-target="#TaskAddedMessageModal"data-bs-toggle="modal">Save Task
+                          <button type="submit" className="btn btn-primary" data-bs-dismiss="modal" aria-label="Close" disabled={newTask.title.length < 5 || newTask.description.length < 5}>Save Task
                           </button>
                         </div>
                       </form>
                     </div>  
-                  </div>
-                </div>
-              </div>
-
-              {/* Thank you your task added */}
-              <div
-                className="modal fade rounded-4 "
-                id="TaskAddedMessageModal"
-                aria-hidden="true"
-                aria-labelledby="TaskAddedMessageModalToggleLabel"
-                tabIndex="-1"
-              >
-                <div className="modal-dialog modal-dialog-centered">
-                  <div className="modal-content rounded-4" style={{width:"300px"}}>
-                    <div className="container d-flex flex-column justify-content-center align-items-center text-center gap-2 p-3" >
-                      <button className="btn btn-dark rounded-4 py-3"style={{width:"25%"}}>Done</button>
-                      <h6  style={{width:"100%"}}>New task has been created <br />succesfully</h6>
-                      <button
-                        className="btn btn-dark"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                        style={{width:"90%"}}>
-                        Back 
-                      </button>
-                    </div>
                   </div>
                 </div>
               </div>

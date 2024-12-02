@@ -48,7 +48,6 @@ class HttpService{
           });
       
           const json = await responce.json();
-          console.log("json updated", json);
           return json;
          
         } catch (error) {
@@ -69,7 +68,6 @@ class HttpService{
           });
       
           const json = await responce.json();
-          console.log("json DELETED", json);
           return json;
          
         } catch (error) {

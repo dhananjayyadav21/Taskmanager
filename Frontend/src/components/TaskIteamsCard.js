@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { SharedServive } from "../services/SharedService";
 import taskContext from "../context/Task/taskContext";
+import AlertContext from "../context/Alert/AlertContext";
 
 const TaskIteamsCard = (props) => {
   // take task as a props from where use Taskcarditems
@@ -9,6 +10,9 @@ const TaskIteamsCard = (props) => {
   // take updatetask using context api
   const context = useContext(taskContext);
   const { updateTask,deleteTask } = context;
+
+  const Alert = useContext(AlertContext);
+  const {showAlert} = Alert;
 
   //=========================================== Handle Edit Task ================================================
   const [uTask, SetUTask] = useState({
@@ -28,6 +32,7 @@ const TaskIteamsCard = (props) => {
       description: currentTask.description,
       status: currentTask.description,
     });
+    showAlert("Task Created Successfully", "success");
   };
 
   //handle form sumbit and task update
@@ -50,6 +55,8 @@ const TaskIteamsCard = (props) => {
   //========================================== Handle Delete Task =================================================
    const handleDeleteTask = (task)=>{
     deleteTask(task._id);
+
+    showAlert("Task Created Successfully", "danger");
    }
 
 

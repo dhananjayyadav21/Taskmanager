@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Alert from "./Alert";
 
 const Navbar = () => {
   return (
@@ -23,7 +24,7 @@ const Navbar = () => {
                     />
                   </div>
 
-                 
+                  <Alert/>
 
                  {/* handle when user login show logout btn as wll as login btn */}
                   <div className="d-flex gap-2">
