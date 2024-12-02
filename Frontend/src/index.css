@@ -11,6 +11,10 @@ body {
   background: #f0efef;
 }
 
+.bg-color-whitis{
+  background: #fafafa;
+}
+
 .bg-blue{
   background: #0e0138;
   color: white;
@@ -18,6 +22,10 @@ body {
 
 .bg-white{
   background: #ffffff;
+}
+
+.cursor-pointer{
+  cursor: pointer;
 }
 
  /* General container styling */

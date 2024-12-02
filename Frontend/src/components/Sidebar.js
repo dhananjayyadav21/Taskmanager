@@ -156,8 +156,9 @@ const Sidebar = () => {
                               name="priority"
                               value={newTask.priority}
                               onChange={handleOnChange}
+                              
                             >
-                              <option value="" disabled selected hidden>
+                              <option value="" disabled hidden>
                                 Priority
                               </option>
                               <option value="high">HIGH</option>
@@ -173,8 +174,9 @@ const Sidebar = () => {
                               name="status"
                               value={newTask.status}
                               onChange={handleOnChange}
+                              
                             >
-                              <option value="" disabled selected hidden>
+                              <option value="" disabled hidden>
                                 Status
                               </option>
                               <option value="To Do">To Do</option>

@@ -89,10 +89,12 @@ router.post(
       return res.status(400).json({ errors: validationErrors.array() });
 
     try {
+      console.log("BOdy===>",req.body)
       const { email, password} = req.body;
 
       //check user exist or not
-      let user = await User.findOne({email });
+      let user = await User.findOne({email: email });
+      console.log("User======>",user)
       if (!user) {
         success = false;
         return res

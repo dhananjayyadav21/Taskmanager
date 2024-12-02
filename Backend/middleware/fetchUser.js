@@ -22,7 +22,7 @@ const fetchUser =  (req, res, next) => {
 
   } catch (error) {
     console.error(error.message);
-    res.status(500).send("some internal server error accrued");
+    res.status(500).send("some internal server error to Authenicate User");
   }
 };
 
