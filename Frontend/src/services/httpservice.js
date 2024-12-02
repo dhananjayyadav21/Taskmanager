@@ -36,29 +36,28 @@ class HttpService{
         }
       };
 
-      // static PUT = async (url,data) => {
-      //   debugger
-      //   var p = JSON.stringify(data);
-      //   try {
-      //     const responce = await fetch(url, {
-      //       method: "PUT",
-      //       headers: {
-      //         "Content-Type": "application/json",
-      //         "AuthToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjc0ZGVhNzE3NmJkYjE1MGJiMTUzZWRjIn0sImlhdCI6MTczMzE2MTI4N30.ef9iLNy5HnF4-CxUPc35z_SjQk4BuNB8WAuM2pUdgSo"
-      //       },
-      //       body: p,
-      //     });
+      static PUT = async (url,data) => {  
+        try {
+          const responce = await fetch(url, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+              "AuthToken": localStorage.getItem('token')
+            },
+            body:JSON.stringify(data)
+          });
       
-      //     const json = await responce.json();
-      //     console.log("json updated", json);
-      //     return json;
+          const json = await responce.json();
+          console.log("json updated", json);
+          return json;
          
-      //   } catch (error) {
-      //     console.error(error)
-      //     throw error;
-      //   }
-      // };
+        } catch (error) {
+          console.error(error)
+          throw error;
+        }
+      };
 
+      
       static DELETE = async (url) => {
         try {
           const responce = await fetch(url, {

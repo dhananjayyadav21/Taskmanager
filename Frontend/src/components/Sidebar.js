@@ -44,11 +44,9 @@ const Sidebar = () => {
                   </div>
                   <p className="fw-bold mb-0 py-2">Expired Task</p>
                   <span className="fw-bold fs-4">
-                    {
-                      alltask.filter((task) => {
-                        return task.status === "To Do";
-                      }).length
-                    }
+                    { alltask.filter((task) => {
+                        return task.status === "Done";
+                      }).length}
                   </span>
                 </div>
               </div>
@@ -60,11 +58,9 @@ const Sidebar = () => {
                   </div>
                   <p className="fw-bold mb-0 py-2">All Active Task</p>
                   <span className="fw-bold fs-4">
-                    {
-                      alltask.filter((task) => {
-                        return task.status === "On Progress";
-                      }).length
-                    }
+                    {alltask.filter((task) => {
+                        return task.status !== "Done";
+                      }).length}
                   </span>
                 </div>
               </div>
@@ -76,19 +72,14 @@ const Sidebar = () => {
                   </div>
                   <p className="fw-bold mb-0 py-2">Completed Task</p>
                   <span className="fw-bold fs-4">
-                    {
-                      alltask.filter((task) => {
-                        return task.status === "On Progress";
-                      }).length
-                    }
-                    /
+                    {alltask.filter((task) => {
+                        return task.status === "Done";
+                      }).length}/
                   </span>
                   <span className="fw-bold">
-                    {
-                      alltask.filter((task) => {
-                        return task;
-                      }).length
-                    }
+                    {alltask.filter((task) => {
+                    return task;
+                    }).length}
                   </span>
                 </div>
               </div>
@@ -96,71 +87,32 @@ const Sidebar = () => {
 
             {/* Add New Task Modal */}
             <div>
-              <div
-                className="modal fade"
-                id="exampleModalToggle"
-                aria-hidden="true"
-                aria-labelledby="exampleModalToggleLabel"
-                tabIndex="-1"
-              >
+              <div className="modal fade" id="AddtaskformModal" aria-hidden="true" aria-labelledby="AddtaskformModalToggleLabel" tabIndex="-1">
                 <div className="modal-dialog modal-dialog-centered">
                   <div className="bg-color-gray p-2 modal-content">
+
                     <div className="modal-header">
                       <span className="btn btn-warning rounded-circle p-1 mx-2"></span>
-                      <h1
-                        className="modal-title fs-5"
-                        id="exampleModalToggleLabel" >
-                        Add New Task
-                      </h1>
-                      <button
-                        type="button"
-                        className="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
+                      <h1 className="modal-title fs-5" id="AddtaskformModalToggleLabel" > Add New Task </h1>
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
                       <form onSubmit={handleFormSumbit}>
+
                         <div className="mb-3">
-                          <label htmlFor="title" className="form-label">
-                            Task Title
-                          </label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            id="title"
-                            name="title"
-                            value={newTask.title}
-                            onChange={handleOnChange}
-                            aria-describedby="emailHelp"
-                          />
+                          <label htmlFor="title" className="form-label">  Task Title  </label>
+                          <input type="text" className="form-control" id="title" name="title" value={newTask.title}onChange={handleOnChange} aria-describedby="emailHelp" />
                         </div>
+
                         <div className="mb-3">
-                          <label htmlFor="description" className="form-label">
-                            Description
-                          </label>
-                          <textarea
-                            className="form-control"
-                            id="description"
-                            name="description"
-                            value={newTask.description}
-                            onChange={handleOnChange}
-                          ></textarea>
+                          <label htmlFor="description" className="form-label">  Description </label>
+                          <textarea className="form-control" id="description" name="description" value={newTask.description} onChange={handleOnChange}  ></textarea>
                         </div>
 
                         <div className="container gap-3 d-md-flex mb-4">
                           <div className="container my-2">
-                            <select
-                              className="form-select"
-                              aria-label="Default select example"
-                              name="priority"
-                              value={newTask.priority}
-                              onChange={handleOnChange}
-                              
-                            >
-                              <option value="" disabled hidden>
-                                Priority
-                              </option>
+                            <select className="form-select" aria-label="Default select example" name="priority" value={newTask.priority}onChange={handleOnChange}>
+                              <option value="" disabled hidden> Priority </option>
                               <option value="high">HIGH</option>
                               <option value="medium">MEDIUM</option>
                               <option value="low">LOW</option>
@@ -168,17 +120,8 @@ const Sidebar = () => {
                           </div>
 
                           <div className="container my-2">
-                            <select
-                              className=" form-select"
-                              aria-label="Default select example"
-                              name="status"
-                              value={newTask.status}
-                              onChange={handleOnChange}
-                              
-                            >
-                              <option value="" disabled hidden>
-                                Status
-                              </option>
+                            <select className=" form-select" aria-label="Default select example" name="status" value={newTask.status} onChange={handleOnChange}  >
+                              <option value="" disabled hidden>Status</option>
                               <option value="To Do">To Do</option>
                               <option value="On Progress">On Progress</option>
                               <option value="Done">Done</option>
@@ -186,11 +129,7 @@ const Sidebar = () => {
                           </div>
                         </div>
                         <div className="modal-footer">
-                          <button
-                            type="submit"
-                            className="btn btn-primary"
-                            data-bs-target="#exampleModalToggle2"
-                            data-bs-toggle="modal">Save Task
+                          <button type="submit" className="btn btn-primary" data-bs-target="#TaskAddedMessageModal"data-bs-toggle="modal">Save Task
                           </button>
                         </div>
                       </form>
@@ -202,9 +141,9 @@ const Sidebar = () => {
               {/* Thank you your task added */}
               <div
                 className="modal fade rounded-4 "
-                id="exampleModalToggle2"
+                id="TaskAddedMessageModal"
                 aria-hidden="true"
-                aria-labelledby="exampleModalToggleLabel2"
+                aria-labelledby="TaskAddedMessageModalToggleLabel"
                 tabIndex="-1"
               >
                 <div className="modal-dialog modal-dialog-centered">
@@ -228,7 +167,7 @@ const Sidebar = () => {
             {/* Add New Task */}
             <div
               className="bg-blue border rounded-4 shadow-sm p-1 d-flex justify-content-center align-self-center align-items-center gap-3 mt-3"
-              data-bs-target="#exampleModalToggle"
+              data-bs-target="#AddtaskformModal"
               data-bs-toggle="modal" >
               <i className="fa-sharp-duotone fa-solid fa-plus"></i>
               <p className="fw-bold mb-0 py-2">Add Task</p>
