@@ -122,7 +122,7 @@ const Sidebar = () => {
                     <div className="modal-body">
                       <form onSubmit={handleFormSumbit}>
                         <div className="mb-3">
-                          <label for="title" className="form-label">
+                          <label htmlFor="title" className="form-label">
                             Task Title
                           </label>
                           <input
@@ -136,7 +136,7 @@ const Sidebar = () => {
                           />
                         </div>
                         <div className="mb-3">
-                          <label for="description" className="form-label">
+                          <label htmlFor="description" className="form-label">
                             Description
                           </label>
                           <textarea
@@ -183,20 +183,16 @@ const Sidebar = () => {
                             </select>
                           </div>
                         </div>
-                        <button type="submit" className="btn btn-primary">
-                          Submit
-                        </button>
+                        <div className="modal-footer">
+                          <button
+                            type="submit"
+                            className="btn btn-primary"
+                            data-bs-target="#exampleModalToggle2"
+                            data-bs-toggle="modal">Save Task
+                          </button>
+                        </div>
                       </form>
-                    </div>
-                    <div className="modal-footer">
-                      <button
-                        className="btn btn-primary"
-                        data-bs-target="#exampleModalToggle2"
-                        data-bs-toggle="modal"
-                      >
-                        Save Task
-                      </button>
-                    </div>
+                    </div>  
                   </div>
                 </div>
               </div>
@@ -210,38 +206,28 @@ const Sidebar = () => {
                 tabIndex="-1"
               >
                 <div className="modal-dialog modal-dialog-centered">
-                  <div className="modal-content">
-                    <div className="modal-body p-4 d-flex-coulm align-self-center align-items-center  ">
-                      <button className="btn btn-dark rounded-4 py-4 px-3">
-                        Done
-                      </button>
-                      <h5>New task has been created succesfully</h5>
+                  <div className="modal-content rounded-4" style={{width:"300px"}}>
+                    <div className="container d-flex flex-column justify-content-center align-items-center text-center gap-2 p-3" >
+                      <button className="btn btn-dark rounded-4 py-3"style={{width:"25%"}}>Done</button>
+                      <h6  style={{width:"100%"}}>New task has been created <br />succesfully</h6>
                       <button
-                        className="btn btn-primary"
-                        data-bs-target="#exampleModalToggle"
-                        data-bs-toggle="modal"
-                      >
-                        Back to first
+                        className="btn btn-dark"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                        style={{width:"90%"}}>
+                        Back 
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
-              <button
-                className="btn btn-primary d-none"
-                data-bs-target="#exampleModalToggle"
-                data-bs-toggle="modal"
-              >
-                Open first modal
-              </button>
             </div>
 
             {/* Add New Task */}
             <div
               className="bg-blue border rounded-4 shadow-sm p-1 d-flex justify-content-center align-self-center align-items-center gap-3 mt-3"
               data-bs-target="#exampleModalToggle"
-              data-bs-toggle="modal"
-            >
+              data-bs-toggle="modal" >
               <i className="fa-sharp-duotone fa-solid fa-plus"></i>
               <p className="fw-bold mb-0 py-2">Add Task</p>
             </div>

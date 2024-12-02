@@ -34,7 +34,6 @@ const Register = () => {
       );
 
       const json = await response.json();
-      console.log(json);
 
       //if success fully register user authtoken store in localstorage and navigate login page
       if (json.success) {
@@ -114,7 +113,7 @@ const Register = () => {
 
                   <div className="d-grid">
                     <button type="submit" className="btn btn-primary">
-                      Login
+                      Register
                     </button>
                   </div>
                 </form>

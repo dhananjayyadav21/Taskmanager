@@ -26,7 +26,6 @@ const Login = () => {
       });
 
       const json = await response.json();
-      console.log(json);
 
       //if credentials right then navigatte main page
       if (json.success) {

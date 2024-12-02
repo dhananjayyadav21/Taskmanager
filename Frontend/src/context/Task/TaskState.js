@@ -8,7 +8,6 @@ const TaskState = (props) => {
     const json = await HttpService.GET(
       "http://localhost:5000/api/task/getAllTask"
     );
-    console.log(json);
     setTask(json);
   };
 
@@ -18,7 +17,6 @@ const TaskState = (props) => {
       "http://localhost:5000/api/task/createtask",
       newtask
     );
-    console.log(json);
     setTask(alltask.concat(json));
   };
 

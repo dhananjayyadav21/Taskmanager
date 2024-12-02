@@ -6,7 +6,6 @@ const Home = () => {
   return (
     <>
       <div className="container-fluid">
-
         {/*Task content container */}
         <div>
           <div className="row gx-2">
@@ -18,7 +17,7 @@ const Home = () => {
             </div>
 
             {/* Task container */}
-            <div className="col-md-10">
+            <div className="col-md-10 mt-4 mt-md-0">
               <div>
                 <Task />
               </div>

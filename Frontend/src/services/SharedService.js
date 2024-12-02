@@ -1,4 +1,3 @@
-import HttpService from "./httpservice";
 export class SharedServive{
 
     static getClassPriority = (priority)=>{

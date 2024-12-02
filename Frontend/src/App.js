@@ -1,15 +1,17 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/login";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import TaskState from "./context/Task/TaskState";
 import Profile from "./components/Profile";
+import AuthState from "./context/Auth/AuthState";
 
 function App() {
   return (
     <>
+     <AuthState>
       <TaskState>
         <Router>
           <Navbar />
@@ -21,6 +23,7 @@ function App() {
           </Routes>
         </Router>
       </TaskState>
+      </AuthState>
     </>
   );
 }

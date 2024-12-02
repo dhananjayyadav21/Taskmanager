@@ -29,7 +29,7 @@ const Navbar = () => {
                   <div className="d-flex gap-2">
                   {!localStorage.getItem("token") ? 
                   (<><Link className="btn btn-warning mx-1 rounded-4" to="/login"> login </Link>
-                      <Link className="btn btn-warning mx-1 rounded-4" to="/Register"> Sign</Link>
+                      <Link className="btn btn-warning mx-1 rounded-4" to="/Register"> Register</Link>
                    </>) : 
                   (<>
                     <Link to="/user" className="btn btn-danger rounded-5">

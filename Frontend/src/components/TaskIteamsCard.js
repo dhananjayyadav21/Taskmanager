@@ -11,7 +11,7 @@ const TaskIteamsCard = (props) => {
           <div className="col-12">
             <div className="bg-white border rounded-4 shadow-sm  p-3">
               <div className="d-flex justify-content-between align-self-center align-items-center">
-                <span class={`badge bg-${SharedServive.getClassPriority(task.priority)}`}>{task?.priority}</span>
+                <span className={`badge bg-${SharedServive.getClassPriority(task.priority)}`}>{task?.priority}</span>
                 <i className="fa-solid fa-ellipsis"></i>
               </div>
               <h4 className="fs-5 mb-0 pt-2">{task?.title}</h4>
