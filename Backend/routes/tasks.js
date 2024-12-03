@@ -13,7 +13,7 @@ router.get("/getAllTask", async (req, res) => {
     res.send(task);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send("some internal server error accrued");
+    res.status(500).send("some internal server error accrued To Show Task");
   }
 });
 
@@ -25,7 +25,7 @@ router.get("/getAllTaskid", fetchUser, async (req, res) => {
     res.send(task);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send("some internal server error accrued");
+    res.status(500).send("some internal server error accrued To Show Your Task");
   }
 });
 
@@ -36,16 +36,16 @@ router.post(
   [
     body("priority")
       .isLength({ min: 3 })
-      .withMessage("Minimum 3 characters required!"),
+      .withMessage("Priority should be minimum 3 characters required!"),
     body("title")
-      .isLength({ min: 5 })
-      .withMessage("Minimum 5 characters required!"),
+      .isLength({ min: 3 })
+      .withMessage("Title should be minimum 3 characters required!"),
     body("description")
       .isLength({ min: 5 })
-      .withMessage("Minimum 5 characters required!"),
+      .withMessage("Description must be use minimum 5 characters required!"),
     body("status")
       .isLength({ min: 3 })
-      .withMessage("Minimum 3 characters required!"),
+      .withMessage("Status should be minimum 3 characters required!"),
   ],
   async (req, res) => {
     // if accured validation errors , send bad request
@@ -69,7 +69,7 @@ router.post(
       res.send(newTask);
     } catch (error) {
       console.error(error.message);
-      res.status(500).send("some internal server error accrued");
+      res.status(500).send("some internal server error accrued for create a new task");
     }
   }
 );
@@ -121,12 +121,12 @@ router.put(
       //finde task with particular id(":id")
       let task = await Task.findById(req.params.id);
       if (!task) {
-        return res.status(404).send("Not Found Task");
+        return res.status(404).send("This task are not available available");
       }
 
       //check task user and reqest user same or not
       if (task.user.toString() !== req.user.id) {
-        return res.status(400).send("Somthing went wrong");
+        return res.status(400).send("Somthing went wrong plese try with right credentials");
       }
 
       //find task from db and update in db
@@ -139,7 +139,7 @@ router.put(
       res.send(task);
     } catch (error) {
       console.error(error.message);
-      res.status(500).send("some internal server error accrued");
+      res.status(500).send("some internal server error accrued for update task");
     }
   }
 );
@@ -162,7 +162,7 @@ router.delete("/delete/:id", fetchUser, async (req, res) => {
     res.send(task);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send("some internal server error accrued");
+    res.status(500).send("some internal server error accrued to delete task plese try with right credentials");
   }
 });
 

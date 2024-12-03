@@ -15,14 +15,13 @@ router.post(
   [
     body("name")
       .isLength({ min: 3 })
-      .withMessage("Minimum 3 characters required!"),
+      .withMessage("User name should be minimum 3 characters required!"),
     body("email")
       .isEmail()
-      .isLength({ min: 5 })
-      .withMessage("Minimum 5 characters required!"),
+      .withMessage("User email must be email required!"),
     body("password")
       .isLength({ min: 5 })
-      .withMessage("Minimum 5 characters required!"),
+      .withMessage("Password should be minimum 5 characters required!"),
   ],
   async (req, res) => {
     // if accured validation errors , send bad request
@@ -65,7 +64,7 @@ router.post(
     } catch (error) {
       success = false;
       console.error(error.message);
-      res.status(500).send("some internal server error accrued");
+      res.status(500).send("some internal server error accrued for Authentication");
     }
   }
 );
@@ -76,11 +75,10 @@ router.post(
   [
     body("email")
       .isEmail()
-      .isLength({ min: 5 })
-      .withMessage("Minimum 5 characters required!"),
+      .withMessage("email must be email required!"),
     body("password")
       .isLength({ min: 5 })
-      .withMessage("Minimum 5 characters required!"),
+      .withMessage("Password should be minimum 5 characters required!"),
   ],
   async (req, res) => {
     // if accured validation errors , send bad request
@@ -89,12 +87,11 @@ router.post(
       return res.status(400).json({ errors: validationErrors.array() });
 
     try {
-      console.log("BOdy===>",req.body)
+
       const { email, password} = req.body;
 
       //check user exist or not
       let user = await User.findOne({email: email });
-      console.log("User======>",user)
       if (!user) {
         success = false;
         return res
@@ -125,7 +122,7 @@ router.post(
     } catch (error) {
       success = false;
       console.error(error.message);
-      res.status(500).send("some internal server error accrued");
+      res.status(500).send("some internal server error accrued for authentication");
     }
   }
 );
@@ -145,7 +142,7 @@ router.post('/getUser',fetchUser, async (req,res)=>{
   } catch (error) {
     success = false;
     console.error(error.message);
-      res.status(500).send("some internal server error accrued");
+      res.status(500).send("some internal server error accrued for getting your profile ");
   }
 })
 
@@ -160,7 +157,7 @@ router.get('/getAllUser', async (req,res)=>{
   } catch (error) {
     success = false;
     console.error(error.message);
-      res.status(500).send("some internal server error accrued");
+      res.status(500).send("some internal server error accrued for getting users ");
   }
 })
 
