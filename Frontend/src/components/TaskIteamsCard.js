@@ -30,7 +30,7 @@ const TaskIteamsCard = (props) => {
       priority: currentTask.priority,
       title: currentTask.title,
       description: currentTask.description,
-      status: currentTask.description,
+      status: currentTask.status,
     });
     showAlert("Task Created Successfully", "success");
   };
@@ -46,6 +46,8 @@ const TaskIteamsCard = (props) => {
       status: uTask.status,
     });
   };
+
+  console.log(uTask);
 
   //handle form onchange when user input data
   const handleOnChange = (e) => {
@@ -96,7 +98,7 @@ const TaskIteamsCard = (props) => {
                       <div className="container gap-3 d-md-flex mb-4">
                         <div className="container my-2">
                           <select className="form-select" aria-label="Default select example" name="priority" value={uTask.priority} onChange={handleOnChange}  >
-                            <option value="">Priority </option>
+                            <option value="" disabled>Priority </option>
                             <option value="high">HIGH</option>
                             <option value="medium">MEDIUM</option>
                             <option value="low">LOW</option>
@@ -105,7 +107,7 @@ const TaskIteamsCard = (props) => {
 
                         <div className="container my-2">
                             <select className=" form-select" aria-label="Default select example" name="status" value={uTask.status} onChange={handleOnChange}  >
-                              <option value="">Status</option>
+                              <option value="" disabled>Status</option>
                               <option value="To Do">To Do</option>
                               <option value="On Progress">On Progress</option>
                               <option value="Done">Done</option>
@@ -127,7 +129,7 @@ const TaskIteamsCard = (props) => {
 
             {/* ======================== Dropdoun for Task edit, delete ======================================*/}
             <div className="btn-group cursor-pointer">
-              <i className="fa-solid fa-ellipsis" data-bs-toggle="dropdown" aria-expanded="false"></i>
+              <i className="fa-solid fa-ellipsis px-4 py-1" data-bs-toggle="dropdown" aria-expanded="false"></i>
               <ul className="dropdown-menu bg-color-whitis p-2">
 
                 <div className="gap-2 cursor-pointer"  data-bs-target={`#editFormModal${task._id}`}  data-bs-toggle="modal"  onClick={() => handleEditForm(task)} >
