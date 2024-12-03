@@ -6,6 +6,7 @@ const Home = () => {
   return (
     <>
       <div className="container-fluid">
+        
         {/*Task content container */}
         <div>
           <div className="row gx-2">

@@ -48,53 +48,38 @@ const Login = () => {
   return (
     <>
       <div className="container mt-5">
-        <div className="row justify-content-center">
-          <div className="col-md-6">
+        <div className="row d-flex flex-md-row-reverse justify-content-center align-items-center ">
+
+        <div className=" col-md-4 mt-md-5">
+            <div class="row"> 
+                <div class="text-center">
+                  <img className="TaskManagerlogo-area" src="/assets/img/TM.webp" alt="profile banner" />
+                </div>     
+            </div>
+          </div>
+
+          <div className="col-md-7 mt-md-5">
             <div className="card shadow rounded-4">
               <div className="card-body p-md-5 p-4">
                 <h3 className="text-center mb-4">
                   Login With Your credentials
                 </h3>
-
                 {/* form for login data */}
                 <form onSubmit={handleFormSumbit}>
                   <div className="mb-3">
-                    <label htmlFor="email" className="form-label">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      onChange={handleonChange}
-                      value={credentials.email}
-                      className="form-control"
-                      placeholder="Enter your email"
-                    />
+                    <label htmlFor="email" className="form-label">Email</label>
+                    <input type="email" id="email" name="email" onChange={handleonChange} value={credentials.email} className="form-control" placeholder="Enter your email" />
                   </div>
 
                   <div className="mb-3">
-                    <label htmlFor="password" className="form-label">
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      id="password"
-                      name="password"
-                      onChange={handleonChange}
-                      value={credentials.password}
-                      className="form-control"
-                      placeholder="Enter your password"
-                    />
+                    <label htmlFor="password" className="form-label"> Password</label>
+                    <input type="password" id="password" name="password" onChange={handleonChange} value={credentials.password} className="form-control" placeholder="Enter your password"/>
                   </div>
 
                   <div className="d-grid">
-                    <button type="submit" className="btn btn-primary">
-                      Login
-                    </button>
+                    <button type="submit" className="btn btn-primary"> Login</button>
                   </div>
                 </form>
-
                 {/* if user dont have account */}
                 <div className="text-center mt-3">
                   <p>
@@ -107,6 +92,7 @@ const Login = () => {
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </>

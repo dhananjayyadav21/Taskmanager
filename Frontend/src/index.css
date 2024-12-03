@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-height: 100vh;
 }
 
 .bg-color-gray{
@@ -26,6 +27,16 @@ body {
 
 .cursor-pointer{
   cursor: pointer;
+}
+
+.profile-area{
+   height: 100vh;
+}
+
+.TaskManagerlogo-area{
+  max-width: 100%;
+  max-height: 80%;
+
 }
 
  /* General container styling */
