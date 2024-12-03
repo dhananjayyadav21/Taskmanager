@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import AlertContext from "../context/Alert/AlertContext";
 
 const Register = () => {
   // using this user navigate login page when user register successfully
   const navigate = useNavigate();
+  const context = useContext(AlertContext);
+  const {showAlert} = context;
 
   //define state initialy credentials
   const [Credentials, setCredentials] = useState({
@@ -39,9 +42,9 @@ const Register = () => {
       if (json.success) {
         localStorage.setItem("token", json.AuthToken);
         navigate("/login");
-        alert("Register successfully");
+        showAlert("Register successfully", "success");
       } else {
-        alert("plese try with right credentials");
+        showAlert("plese try with right credentials", "success");
       }
     } catch (error) {
       console.error(error.message);

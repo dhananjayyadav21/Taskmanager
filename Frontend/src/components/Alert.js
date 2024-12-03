@@ -9,7 +9,7 @@ const Alert = () => {
 
   return (
     <>
-      <div className={`alert alert-${alert.type} p-2`}>{alert.message}</div>
+      <div className={`alert alert-${alert.type} p-2`}> <strong>Message :</strong> {alert.message} <strong>!!!</strong></div>
     </>
   );
 };

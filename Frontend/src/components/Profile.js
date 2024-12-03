@@ -1,10 +1,15 @@
 import React, { useContext, useEffect, useRef } from "react";
 import AuthContext from "../context/Auth/AuthContext";
+import AlertContext from "../context/Alert/AlertContext";
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const context = useContext(AuthContext);
   const { user, getUser } = context;
+
+  const Alertcontext = useContext(AlertContext);
+  const {showAlert} = Alertcontext;
+
 
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
@@ -30,6 +35,7 @@ const Profile = () => {
     localStorage.removeItem("token");
     refClose.current.click();
     navigate("/login");
+    showAlert("You are log out", "warning");
   };
 
   
@@ -45,7 +51,7 @@ const Profile = () => {
                 <button  type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"
                 ></button>
               </div>
-              <div className="modal-body"> You will lose access to your account without login </div>
+              <div className="modal-body"> You will lose access to your account </div>
               <div className="modal-footer">
                 <button  ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 <button onClick={handleYesLogOut} type="button" className="btn btn-danger">log Out </button>
@@ -75,9 +81,9 @@ const Profile = () => {
                   <p><strong>User Id:</strong>{user._id}</p>
                 </div>
                 <div>
-                  <a onClick={handleLogout} className="btn btn-danger btn-sm">
+                  <div onClick={handleLogout} className="btn btn-danger btn-sm">
                     Logout <i className="fa-solid fa-arrow-right-from-bracket"></i>
-                  </a>
+                  </div>
                 </div>
               </div>
               <div className="card-footer text-center text-muted py-3"> Member since {user.Date}</div>

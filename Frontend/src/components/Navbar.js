@@ -1,6 +1,5 @@
 import React from "react";
 import { Link,useLocation, useNavigate } from "react-router-dom";
-import Alert from "./Alert";
 
 const Navbar = () => {
 

@@ -1,6 +1,7 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
 import Task from "../components/Task";
+import Alert from "../components/Alert";
 
 const Home = () => {
   return (
@@ -12,7 +13,7 @@ const Home = () => {
           <div className="row gx-2">
             {/* sidebar container */}
             <div className="col-md-2">
-              <div style={{ height: "80vh" }}>
+              <div className="sidebar-height">
                 <Sidebar />
               </div>
             </div>
@@ -20,7 +21,9 @@ const Home = () => {
             {/* Task container */}
             <div className="col-md-10 mt-4 mt-md-0">
               <div>
+                <Alert/>
                 <Task />
+
               </div>
             </div>
           </div>

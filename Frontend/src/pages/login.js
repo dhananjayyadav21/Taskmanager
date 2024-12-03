@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import AlertContext from "../context/Alert/AlertContext";
+import Alert from '../components/Alert';
 
 const Login = () => {
-  //define navigate
+
+  const context = useContext(AlertContext);
+  const {showAlert} = context;
   const navigate = useNavigate();
 
   //define state for initialy user details
@@ -31,9 +35,9 @@ const Login = () => {
       if (json.success) {
         localStorage.setItem("token", json.AuthToken);
         navigate("/");
-        alert("login successfully");
+        showAlert("login Successfully", "success");
       } else {
-        alert("plese try with right credentials");
+        showAlert("plese try with right credentials", "danger");
       }
     } catch (error) {
       console.error(error.message);
@@ -48,6 +52,7 @@ const Login = () => {
   return (
     <>
       <div className="container mt-5">
+         <Alert/>
         <div className="row d-flex flex-md-row-reverse justify-content-center align-items-center ">
 
         <div className=" col-md-4 mt-md-5">

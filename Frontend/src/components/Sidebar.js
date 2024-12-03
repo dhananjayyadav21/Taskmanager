@@ -1,10 +1,14 @@
 import React, { useContext, useState } from "react";
 import taskContext from "../context/Task/taskContext";
+import AlertContext from "../context/Alert/AlertContext";
 
 const Sidebar = () => {
   // get context function using context api
   const context = useContext(taskContext);
   const { alltask, addTask } = context;
+
+  const showcontext = useContext(AlertContext);
+  const {showAlert} = showcontext;
 
   // handle form sumbit
   const handleFormSumbit = (e) => {
@@ -15,6 +19,7 @@ const Sidebar = () => {
       description: newTask.description,
       status: newTask.status,
     });
+    showAlert("New task added successfully", "suuccess");
   };
 
   //handle on chnage
@@ -36,9 +41,9 @@ const Sidebar = () => {
         <div className="row">
           <div className="col-12">
             {/* progress details card container */}
-            <div className="row gap-2">
-              <div className="col-12">
-                <div className="bg-color-gray border rounded-4 shadow-sm p-4">
+            <div className="row gap-md-2">
+              <div className="col-md-12 col-4">
+                <div className="bg-color-gray border rounded-4 shadow-sm  p-4">
                   <div className="btn btn-danger rounded-circle mb-2">
                     <i className="fa-solid fa-calendar-xmark"></i>
                   </div>
@@ -51,7 +56,7 @@ const Sidebar = () => {
                 </div>
               </div>
 
-              <div className="col-12 ">
+              <div className="col-md-12 col-4 ">
                 <div className="bg-color-gray border rounded-4 shadow-sm  px-3 py-4">
                   <div className="btn btn-warning rounded-circle mb-2">
                     <i className="fa-solid fa-bars-progress"></i>
@@ -65,7 +70,7 @@ const Sidebar = () => {
                 </div>
               </div>
 
-              <div className="col-12">
+              <div className="col-md-12 col-4">
                 <div className="bg-color-gray border rounded-4 shadow-sm p-4">
                   <div className="btn btn-primary rounded-circle mb-2">
                     <i className="fa-regular fa-clock"></i>

@@ -6,8 +6,8 @@ const AlertState = (props)=>{
     const [alert, setAlert] = useState(null);
 
     const showAlert = (message, type)=>{
-        setAlert( message, type );
-      setTimeout(() => setAlert(null), 5000); 
+        setAlert({message, type});
+      setTimeout(() => setAlert(null), 3000); 
     }
 
    return(

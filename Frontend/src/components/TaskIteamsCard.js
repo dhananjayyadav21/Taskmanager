@@ -32,7 +32,6 @@ const TaskIteamsCard = (props) => {
       description: currentTask.description,
       status: currentTask.status,
     });
-    showAlert("Task Created Successfully", "success");
   };
 
   //handle form sumbit and task update
@@ -45,9 +44,8 @@ const TaskIteamsCard = (props) => {
       description: uTask.description,
       status: uTask.status,
     });
+    showAlert("Task Updated Successfully", "warning");
   };
-
-  console.log(uTask);
 
   //handle form onchange when user input data
   const handleOnChange = (e) => {
@@ -57,8 +55,7 @@ const TaskIteamsCard = (props) => {
   //========================================== Handle Delete Task =================================================
    const handleDeleteTask = (task)=>{
     deleteTask(task._id);
-
-    showAlert("Task Created Successfully", "danger");
+    showAlert("Task Deleted", "danger");
    }
 
 
