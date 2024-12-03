@@ -65,22 +65,12 @@ const TaskIteamsCard = (props) => {
       <div className="col-12">
         <div className="bg-white border rounded-4 shadow-sm  p-3">
           <div className="d-flex justify-content-between align-self-center align-items-center">
-            <span
-              className={`badge bg-${SharedServive.getClassPriority(
-                task.priority
-              )}`}
-            >
+            <span className={`badge bg-${SharedServive.getClassPriority(task.priority )}`}>
               {task?.priority}
             </span>
 
             {/* update Task Modal =========================================================================== */}
-            <div
-              className="modal fade"
-              id={`editFormModal${task._id}`}
-              aria-hidden="true"
-              aria-labelledby="editFormModalLabel"
-              tabIndex="-1"
-            >
+            <div className="modal fade" id={`editFormModal${task._id}`} aria-hidden="true"  aria-labelledby="editFormModalLabel" tabIndex="-1">
               <div className="modal-dialog modal-dialog-centered">
                 <div className="bg-color-gray p-2 modal-content">
 
@@ -106,7 +96,7 @@ const TaskIteamsCard = (props) => {
                       <div className="container gap-3 d-md-flex mb-4">
                         <div className="container my-2">
                           <select className="form-select" aria-label="Default select example" name="priority" value={uTask.priority} onChange={handleOnChange}  >
-                            <option disabled hidden>Priority </option>
+                            <option value="">Priority </option>
                             <option value="high">HIGH</option>
                             <option value="medium">MEDIUM</option>
                             <option value="low">LOW</option>
@@ -114,13 +104,14 @@ const TaskIteamsCard = (props) => {
                         </div>
 
                         <div className="container my-2">
-                          <select className=" form-select" aria-label="Default select example" name="status" value={uTask.status} onChange={handleOnChange} >
-                            <option disabled hidden>  Status </option>
-                            <option value="To Do">To Do</option>
-                            <option value="On Progress">On Progress</option>
-                            <option value="Done">Done</option>
-                          </select>
-                        </div>
+                            <select className=" form-select" aria-label="Default select example" name="status" value={uTask.status} onChange={handleOnChange}  >
+                              <option value="">Status</option>
+                              <option value="To Do">To Do</option>
+                              <option value="On Progress">On Progress</option>
+                              <option value="Done">Done</option>
+                            </select>
+                          </div>
+
                       </div>
 
                       <div className="modal-footer">

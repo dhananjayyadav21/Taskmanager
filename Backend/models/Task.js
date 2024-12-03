@@ -27,7 +27,7 @@ const TaskSchema = new Schema({
     },
     assigned:{
         type:String,
-        ref:'user'
+        ref:'users'
     }
 });
 
