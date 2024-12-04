@@ -10,3 +10,4 @@ export const GETtASK_URL = `${BASEURL}api/task/getAllTaskid`
 export const ADDTASK_URL = `${BASEURL}api/task/createtask`
 export const UPDATTASK_URL = `${BASEURL}api/task/update`
 export const DELETTASK_URL = `${BASEURL}api/task/delete`
+export const SEARCHTASK_URL = `${BASEURL}api/task/searchTask`

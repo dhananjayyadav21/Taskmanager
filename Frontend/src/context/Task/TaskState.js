@@ -64,12 +64,20 @@ const TaskState = (props) => {
     
   };
 
+  //======================================== SearchTask api call ===========================================
+  const SearchTask = async (input) => {
+    const json = await HttpService.GET(
+      `${GlobalUrls.SEARCHTASK_URL}?input=${input}`
+    );
+    setTask(json);
+  };
+
   //define state for task =================
   const [alltask, setTask] = useState([]);
 
   return (
     <TaskContext.Provider
-      value={{ alltask, getAllTask, addTask, getTask, updateTask, deleteTask}}
+      value={{ alltask, getAllTask, addTask, getTask, updateTask, deleteTask,SearchTask}}
     >
       {props.children}
     </TaskContext.Provider>

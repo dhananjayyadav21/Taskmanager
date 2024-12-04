@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link,useLocation, useNavigate } from "react-router-dom";
 import TaskFilter from "./TaskFilter";
+import taskContext from "../context/Task/taskContext";
 
 const Navbar = () => {
+
+  const taskcontext = useContext(taskContext);
+  const {SearchTask} = taskcontext;
+
+  const OnSearch =(e)=>{
+    if (e.key=="Enter" || (e.type==="input" && e.target.value.length==0)) {
+      SearchTask(e.target.value);
+    }
+  }
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -23,7 +33,7 @@ const Navbar = () => {
               <div className="d-flex justify-content-between">
                 {location.pathname === '/' ?(<>
                   <div>
-                    <input type="email" className="form-control rounded-4 py-2 px-4 searchbox" id="search" aria-describedby="emailHelp" placeholder="search Project"/>
+                    <input type="search" className="form-control rounded-4 py-2 px-4 searchbox" id="search" aria-describedby="emailHelp" placeholder="Search Project" onInput={event=> OnSearch(event)} onKeyDown={event=> OnSearch(event)}/>
                   </div></>):(<><div onClick={navigateToHome}><h5 className="mt-1 px-2 cursor-pointer">TaskManager</h5></div> </> )}
                 
 
