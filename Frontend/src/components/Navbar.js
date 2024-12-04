@@ -23,14 +23,15 @@ const Navbar = () => {
               <div className="d-flex justify-content-between">
                 {location.pathname === '/' ?(<>
                   <div>
-                    <input type="email" className="form-control rounded-4 py-2 px-4" id="search" aria-describedby="emailHelp" placeholder="search Project" style={{ width: "250px" }}/>
+                    <input type="email" className="form-control rounded-4 py-2 px-4 searchbox" id="search" aria-describedby="emailHelp" placeholder="search Project"/>
                   </div></>):(<><div onClick={navigateToHome}><h5 className="mt-1 px-2 cursor-pointer">TaskManager</h5></div> </> )}
                 
 
                 
                  {/*=========================== handle when user login show logout btn as wll as login btn ============================*/}
-                  <div className="d-flex gap-2">
-                    <TaskFilter/>
+                  <div className="d-flex align-items-center align-self-center gap-2">
+                    <div className="mx-2"><TaskFilter/></div>
+                    
                     {!localStorage.getItem("token") ? 
                     (<><Link className="btn btn-warning mx-1 rounded-4" to="/login"> login </Link>
                         <Link className="btn btn-warning mx-1 rounded-4" to="/Register"> Register</Link></>):(<>

@@ -58,6 +58,10 @@ body {
   .display-none-IncomputerScreen {
     display: none;
   }
+
+  .searchbox{
+    width: 250px;
+  }
 }
 
 /* media for mobile phone  */
@@ -73,6 +77,10 @@ body {
 
   .display-none-InMobileScreen {
     display: none;
+  }
+
+  .searchbox{
+    width: 150px;
   }
 }
 

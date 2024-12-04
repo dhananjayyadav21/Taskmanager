@@ -167,7 +167,7 @@ const TaskIteamsCard = (props) => {
                     ></button>
                   </div>
                   <div className="modal-body">{allUser.map((user)=><AsignUsers closeAssignClick={closeAssignClick} user={user} task={task} UserName={user.name} UserId={user._id}/>)} </div>
-                  <div className="modal-footer">
+                  <div className="modal-footer d-none">
                     <button  ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     <button  type="button" className="btn btn-danger"> Assign </button>
                   </div>
@@ -206,7 +206,7 @@ const TaskIteamsCard = (props) => {
             <h4 className="fs-5 mb-0 pt-2">{task?.title}</h4>
             <p className="fs-6 mb-0 py-2">{task?.description}</p>
             <span className="fw-bold fs-6">Dedline:</span>
-            <span>12/15</span>
+            <span className="mx-1">{new Date(task.deadline).toLocaleString()}</span>
         </div>
       </div>
     </>

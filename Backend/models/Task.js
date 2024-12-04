@@ -8,7 +8,6 @@ const TaskSchema = new Schema({
     },
     Auser:{
       type:String,
-      required:true
     },
     priority:{
         type:String,
