@@ -1,19 +1,20 @@
 import { useState } from "react";
 import AuthContext from "./AuthContext";
 import HttpService from "../../services/httpservice";
+import * as GlobalUrls from "../../GlobalURL"
 
 const AuthState = (props) => {
   //get user using this function =================================================================================
   const getUser = async () => {
     const json = await HttpService.POST(
-      "http://localhost:5000/api/auth/getUser"
+        `${GlobalUrls.GETUSER_URL}`
     );
     setUser(json);
   };
 
   const getAllUser = async () => {
     const json = await HttpService.GET(
-      "http://localhost:5000/api/auth/getAllUser"
+      `${GlobalUrls.GETALLUSER_URL}`
     );
     console.log(json)
     setAllUser(json);

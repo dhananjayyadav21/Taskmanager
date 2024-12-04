@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AlertContext from "../context/Alert/AlertContext";
+import * as GlobalUrls from "../GlobalURL"
 
 const Register = () => {
   // using this user navigate login page when user register successfully
@@ -22,7 +23,7 @@ const Register = () => {
     try {
       // data send in db using fetch api
       const response = await fetch(
-        "http://localhost:5000/api/auth/createuser",
+        `${GlobalUrls.REGISTER_URL}`,
         {
           method: "POST",
           headers: {

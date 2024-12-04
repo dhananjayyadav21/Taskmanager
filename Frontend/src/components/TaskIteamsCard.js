@@ -71,8 +71,6 @@ const TaskIteamsCard = (props) => {
       });
       
       getAllUser();
-      console.log("bbe------------->",allUser);
-      console.log("bb------------->",task);
       ref.current.click();
    }
 
@@ -88,9 +86,7 @@ const TaskIteamsCard = (props) => {
 
     refClose.current.click();
     console.log("updated task------------->",task);
-    console.log("updated user------------->",user);
    }
-
 
   return (
     <>
@@ -205,6 +201,7 @@ const TaskIteamsCard = (props) => {
           </div>
             <h4 className="fs-5 mb-0 pt-2">{task?.title}</h4>
             <p className="fs-6 mb-0 py-2">{task?.description}</p>
+            <div></div>
             <span className="fw-bold fs-6">Dedline:</span>
             <span className="mx-1">{new Date(task.deadline).toLocaleString()}</span>
         </div>

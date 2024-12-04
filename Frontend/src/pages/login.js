@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AlertContext from "../context/Alert/AlertContext";
 import Alert from '../components/Alert';
+import * as GlobalUrls from "../GlobalURL"
 
 const Login = () => {
 
@@ -18,7 +19,7 @@ const Login = () => {
 
     try {
       // post form data on server for check credentials
-      const response = await fetch("http://localhost:5000/api/auth/login", {
+      const response = await fetch(`${GlobalUrls.LOGIN_URL}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

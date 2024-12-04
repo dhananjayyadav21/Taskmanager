@@ -1,12 +1,13 @@
 import { useState } from "react";
 import TaskContext from "./taskContext";
 import HttpService from "../../services/httpservice";
+import * as GlobalUrls from "../../GlobalURL"
 
 const TaskState = (props) => {
   //================================= Get All task using api request ============================================
   const getAllTask = async () => {
     const json = await HttpService.GET(
-      "http://localhost:5000/api/task/getAllTask"
+      `${GlobalUrls.GETALLTASK_URL}`
     );
     setTask(json);
   };
@@ -14,7 +15,7 @@ const TaskState = (props) => {
   //================================= Get All task using api request ============================================
   const getTask = async () => {
     const json = await HttpService.GET(
-      "http://localhost:5000/api/task/getAllTaskid"
+      `${GlobalUrls.GETtASK_URL}`
     );
     console.log("===========",json);
     setTask(json);
@@ -23,7 +24,7 @@ const TaskState = (props) => {
   //======================================= Add TASK() api call function =======================================
   const addTask = async (newtask) => {
     const json = await HttpService.POST(
-      "http://localhost:5000/api/task/createtask",
+      `${GlobalUrls.ADDTASK_URL}`,
       newtask
     );
     setTask(alltask.concat(json));
@@ -34,7 +35,7 @@ const TaskState = (props) => {
   const updateTask = async (edittask) => {
     // eslint-disable-next-line
     const json = await HttpService.PUT(
-      `http://localhost:5000/api/task/update/${edittask.id}`,
+      `${GlobalUrls.UPDATTASK_URL}/${edittask.id}`,
       edittask
     );
     const newTask = JSON.parse(JSON.stringify(alltask));
@@ -56,7 +57,7 @@ const TaskState = (props) => {
   const deleteTask = async (id) => {
     // eslint-disable-next-line
     const json = await HttpService.DELETE(
-      `http://localhost:5000/api/task/delete/${id}`
+      `${GlobalUrls.DELETTASK_URL}/${id}`
     );
     const newTask = alltask.filter((task) => task._id !== id);
     setTask(newTask);
