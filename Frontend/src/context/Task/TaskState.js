@@ -11,6 +11,15 @@ const TaskState = (props) => {
     setTask(json);
   };
 
+  //================================= Get All task using api request ============================================
+  const getTask = async () => {
+    const json = await HttpService.GET(
+      "http://localhost:5000/api/task/getAllTaskid"
+    );
+    console.log("===========",json);
+    setTask(json);
+  };
+
   //======================================= Add TASK() api call function =======================================
   const addTask = async (newtask) => {
     const json = await HttpService.POST(
@@ -19,6 +28,7 @@ const TaskState = (props) => {
     );
     setTask(alltask.concat(json));
   };
+
 
   // ============================== UPDATE TASK() using this function =========================================
   const updateTask = async (edittask) => {
@@ -41,6 +51,7 @@ const TaskState = (props) => {
     setTask(newTask);
   };
 
+
   //======================================== Delete task api call ===========================================
   const deleteTask = async (id) => {
     // eslint-disable-next-line
@@ -49,6 +60,7 @@ const TaskState = (props) => {
     );
     const newTask = alltask.filter((task) => task._id !== id);
     setTask(newTask);
+    
   };
 
   //define state for task =================
@@ -56,7 +68,7 @@ const TaskState = (props) => {
 
   return (
     <TaskContext.Provider
-      value={{ alltask, getAllTask, addTask, updateTask, deleteTask }}
+      value={{ alltask, getAllTask, addTask, getTask, updateTask, deleteTask}}
     >
       {props.children}
     </TaskContext.Provider>

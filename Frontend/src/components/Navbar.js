@@ -1,5 +1,6 @@
 import React from "react";
 import { Link,useLocation, useNavigate } from "react-router-dom";
+import TaskFilter from "./TaskFilter";
 
 const Navbar = () => {
 
@@ -8,7 +9,6 @@ const Navbar = () => {
   const navigateToHome = ()=>{
      navigate('/');
   }
-
 
   return (
     <>
@@ -27,8 +27,10 @@ const Navbar = () => {
                   </div></>):(<><div onClick={navigateToHome}><h5 className="mt-1 px-2 cursor-pointer">TaskManager</h5></div> </> )}
                 
 
+                
                  {/*=========================== handle when user login show logout btn as wll as login btn ============================*/}
                   <div className="d-flex gap-2">
+                    <TaskFilter/>
                     {!localStorage.getItem("token") ? 
                     (<><Link className="btn btn-warning mx-1 rounded-4" to="/login"> login </Link>
                         <Link className="btn btn-warning mx-1 rounded-4" to="/Register"> Register</Link></>):(<>

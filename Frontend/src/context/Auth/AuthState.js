@@ -11,10 +11,20 @@ const AuthState = (props) => {
     setUser(json);
   };
 
+  const getAllUser = async () => {
+    const json = await HttpService.GET(
+      "http://localhost:5000/api/auth/getAllUser"
+    );
+    console.log(json)
+    setAllUser(json);
+  };
+
+
   const [user, setUser] = useState([]);
+  const [allUser, setAllUser] = useState([]);
 
   return (
-    <AuthContext.Provider value={{ user, getUser }}>
+    <AuthContext.Provider value={{ user, getUser,allUser,getAllUser }}>
       {props.children}
     </AuthContext.Provider>
   );

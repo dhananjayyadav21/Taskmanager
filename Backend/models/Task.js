@@ -6,6 +6,10 @@ const TaskSchema = new Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:'users'
     },
+    Auser:{
+      type:String,
+      required:true
+    },
     priority:{
         type:String,
         default:"low"
@@ -24,10 +28,6 @@ const TaskSchema = new Schema({
     deadline:{
         type: Date,
         default: Date.now
-    },
-    assigned:{
-        type:String,
-        ref:'users'
     }
 });
 

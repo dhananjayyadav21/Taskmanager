@@ -6,6 +6,7 @@ class HttpService{
             method: "GET",
             headers: {
               "Content-Type": "application/json",
+              "AuthToken": localStorage.getItem("token")
             },
           });
       

@@ -1,18 +1,18 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { SharedServive } from "../services/SharedService";
 import taskContext from "../context/Task/taskContext";
-import AlertContext from "../context/Alert/AlertContext";
+import AsignUsers from "./AsignUsers";
+import AuthContext from "../context/Auth/AuthContext";
 
 const TaskIteamsCard = (props) => {
   // take task as a props from where use Taskcarditems
   const { task } = props;
 
-  // take updatetask using context api
   const context = useContext(taskContext);
   const { updateTask,deleteTask } = context;
 
-  const Alert = useContext(AlertContext);
-  const {showAlert} = Alert;
+  const GetAllUser = useContext(AuthContext);
+  const {allUser, getAllUser} = GetAllUser;
 
   //=========================================== Handle Edit Task ================================================
   const [uTask, SetUTask] = useState({
@@ -44,7 +44,6 @@ const TaskIteamsCard = (props) => {
       description: uTask.description,
       status: uTask.status,
     });
-    showAlert("Task Updated Successfully", "warning");
   };
 
   //handle form onchange when user input data
@@ -55,7 +54,41 @@ const TaskIteamsCard = (props) => {
   //========================================== Handle Delete Task =================================================
    const handleDeleteTask = (task)=>{
     deleteTask(task._id);
-    showAlert("Task Deleted", "danger");
+   }
+
+   //========================================== Handle Asign user ===================================================
+   const ref = useRef();
+   const refClose = useRef();
+ 
+   const handleAsignUserClick = (currentTask)=>{
+      SetUTask({
+        id: currentTask._id,
+        priority: currentTask.priority,
+        title: currentTask.title,
+        description: currentTask.description,
+        status: currentTask.status,
+        Auser:currentTask.Auser
+      });
+      
+      getAllUser();
+      console.log("bbe------------->",allUser);
+      console.log("bb------------->",task);
+      ref.current.click();
+   }
+
+   const closeAssignClick = (user,task)=>{
+    updateTask({
+      id: task._id,
+      priority: task.priority,
+      title: task.title,
+      description: task.description,
+      status: task.status,
+      Auser:user.name
+    });
+
+    refClose.current.click();
+    console.log("updated task------------->",task);
+    console.log("updated user------------->",user);
    }
 
 
@@ -125,6 +158,24 @@ const TaskIteamsCard = (props) => {
             </div>
 
             {/* ===================================== User Assigne  ========================================*/}
+            <div  className="modal fade" id="AssignUserContainer" aria-hidden="true" aria-labelledby="AssignUserContainerLabel" tabIndex="-1" >
+              <div className="modal-dialog modal-dialog-centered">
+                <div className="deleteacount modal-content bg-color-gray">
+                  <div className="modal-header">
+                    <h5 className="modal-title text-center" id="AssignUserContainerLabel"> Assign User </h5>
+                    <button  type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    ></button>
+                  </div>
+                  <div className="modal-body">{allUser.map((user)=><AsignUsers closeAssignClick={closeAssignClick} user={user} task={task} UserName={user.name} UserId={user._id}/>)} </div>
+                  <div className="modal-footer">
+                    <button  ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button  type="button" className="btn btn-danger"> Assign </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a ref={ref} className="btn btn-primary d-none" data-bs-toggle="modal"  href="#AssignUserContainer" role="button"> Open modal
+            </a>
             
 
             {/* ===================================== Dropdoun for Task edit, delete ========================================*/}
@@ -137,7 +188,7 @@ const TaskIteamsCard = (props) => {
                   <span className="mx-2 fw-bold">Edit Task</span>
                 </div>
 
-                <div className="gap-2 py-2 cursor-pointer">
+                <div className="gap-2 py-2 cursor-pointer" onClick={()=> handleAsignUserClick(task)}>
                   <i className="fa-regular fa-user"></i>
                   <span className="mx-2 fw-bold">Assign User</span>
                 </div>

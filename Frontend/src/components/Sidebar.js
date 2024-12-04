@@ -19,7 +19,7 @@ const Sidebar = () => {
       description: newTask.description,
       status: newTask.status,
     });
-    showAlert("New task added successfully", "suuccess");
+    showAlert("New task added successfully", "success");
   };
 
   //handle on chnage

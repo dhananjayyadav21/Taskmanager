@@ -5,7 +5,7 @@ const fetchUser = require("../middleware/fetchUser");
 
 const router = express.Router();
 
-//fetch all task without id  1.GET:/api/task/getAllTask ==========================================================
+//=======================================fetch all task without id  1.GET:/api/task/getAllTask ===========================================
 router.get("/getAllTask", async (req, res) => {
   try {
     //fetch all notes from db
@@ -17,7 +17,7 @@ router.get("/getAllTask", async (req, res) => {
   }
 });
 
-//fetch all task from db by id  2.GET:/api/task/getAllTaskid ========================================================
+//============================== fetch all task from db by id  2.GET:/api/task/getAllTaskid ============================================
 router.get("/getAllTaskid", fetchUser, async (req, res) => {
   try {
     //fetch all notes from db
@@ -29,7 +29,7 @@ router.get("/getAllTaskid", fetchUser, async (req, res) => {
   }
 });
 
-// Create new task using  3.POST:/api/task/createtask =============================================================
+//========================================= Create new task using  3.POST:/api/task/createtask ============================================
 router.post(
   "/createtask",
   fetchUser,
@@ -74,7 +74,7 @@ router.post(
   }
 );
 
-// update existing task using  4.PUT:/api/task/update    required loging ========================================
+//============================ update existing task using  4.PUT:/api/task/update required loging ========================================
 router.put(
   "/update/:id",
   fetchUser,
@@ -144,7 +144,9 @@ router.put(
   }
 );
 
-// delete existing task using  5. DELETE:/api/task/delete  login required =================================
+
+
+//================================ delete existing task using  5. DELETE:/api/task/delete  login required =================================
 router.delete("/delete/:id", fetchUser, async (req, res) => {
   try {
     //find task from db by user id
