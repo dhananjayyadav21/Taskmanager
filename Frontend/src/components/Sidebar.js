@@ -40,7 +40,8 @@ const Sidebar = () => {
       <div>
         <div className="row">
           <div className="col-12">
-            {/* progress details card container */}
+
+            {/*==================================== 3 progress details card container =========================================*/}
             <div className="row gap-md-2">
               <div className="col-md-12 col-4">
                 <div className="bg-color-gray border rounded-4 shadow-sm  p-4">
@@ -49,9 +50,7 @@ const Sidebar = () => {
                   </div>
                   <p className="fw-bold mb-0 py-2">Expired Task</p>
                   <span className="fw-bold fs-4">
-                    { alltask.filter((task) => {
-                        return task.status === "Done";
-                      }).length}
+                    { alltask.filter((task) => { return task.status === "Done"; }).length}
                   </span>
                 </div>
               </div>
@@ -63,9 +62,7 @@ const Sidebar = () => {
                   </div>
                   <p className="fw-bold mb-0 py-2">All Active Task</p>
                   <span className="fw-bold fs-4">
-                    {alltask.filter((task) => {
-                        return task.status !== "Done";
-                      }).length}
+                    {alltask.filter((task) => { return task.status !== "Done";}).length}
                   </span>
                 </div>
               </div>
@@ -77,20 +74,16 @@ const Sidebar = () => {
                   </div>
                   <p className="fw-bold mb-0 py-2">Completed Task</p>
                   <span className="fw-bold fs-4">
-                    {alltask.filter((task) => {
-                        return task.status === "Done";
-                      }).length}/
+                    {alltask.filter((task) => {return task.status === "Done";}).length}/
                   </span>
                   <span className="fw-bold">
-                    {alltask.filter((task) => {
-                    return task;
-                    }).length}
+                    {alltask.filter((task) => {return task;}).length}
                   </span>
                 </div>
               </div>
             </div>
 
-            {/* Add New Task Modal */}
+            {/*========================================== Add New Task Modal ===================================================*/}
             <div>
               <div className="modal fade" id="AddtaskformModal" aria-hidden="true" aria-labelledby="AddtaskformModalToggleLabel" tabIndex="-1">
                 <div className="modal-dialog modal-dialog-centered">
@@ -144,7 +137,7 @@ const Sidebar = () => {
               </div>
             </div>
 
-            {/* Add New Task */}
+            {/*=========================================== Add New Task btn =====================================================*/}
             <div
               className="bg-blue border rounded-4 shadow-sm p-1 d-flex justify-content-center align-self-center align-items-center gap-3 mt-3"
               data-bs-target="#AddtaskformModal"

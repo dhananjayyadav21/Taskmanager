@@ -21,9 +21,8 @@ const Home = () => {
             {/* Task container */}
             <div className="col-md-10 mt-4 mt-md-0">
               <div>
-                <Alert/>
+                <Alert/> 
                 <Task />
-
               </div>
             </div>
           </div>

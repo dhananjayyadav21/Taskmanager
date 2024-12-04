@@ -42,12 +42,12 @@ const Profile = () => {
 
   return (
     <>
-        {/* Modal for coinfirmation for log out ===============================================================*/}
-        <div  className="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabIndex="-1" >
+        {/*====================================== Modal for coinfirmation for log out =========================================*/}
+        <div  className="modal fade" id="logOutCinfirmation" aria-hidden="true" aria-labelledby="logOutCinfirmationLabel" tabIndex="-1" >
           <div className="modal-dialog modal-dialog-centered">
             <div className="deleteacount modal-content bg-color-gray">
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalToggleLabel"> Log Out </h5>
+                <h5 className="modal-title" id="logOutCinfirmationLabel"> Log Out </h5>
                 <button  type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"
                 ></button>
               </div>
@@ -59,11 +59,11 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <a ref={ref} className="btn btn-primary d-none" data-bs-toggle="modal"  href="#exampleModalToggle" role="button"> Open modal
+        <a ref={ref} className="btn btn-primary d-none" data-bs-toggle="modal"  href="#logOutCinfirmation" role="button"> Open modal
         </a>
 
 
-      {/* Profile container ======================================================================================== */}
+      {/*================================================ Profile container =================================================== */}
       <div className="container mt-5">
         <div className="profile-area row g-4 justify-content-center align-items-start  align-self-start ">
 

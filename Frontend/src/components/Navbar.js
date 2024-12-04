@@ -19,7 +19,7 @@ const Navbar = () => {
             <div className="col-12">
               <div className="bg-color-gray p-2 border rounded-4">
 
-                {/* Search Box */}
+              {/*================================================== Search Box ========================================================*/}
               <div className="d-flex justify-content-between">
                 {location.pathname === '/' ?(<>
                   <div>
@@ -27,12 +27,11 @@ const Navbar = () => {
                   </div></>):(<><div onClick={navigateToHome}><h5 className="mt-1 px-2 cursor-pointer">TaskManager</h5></div> </> )}
                 
 
-                 {/* handle when user login show logout btn as wll as login btn */}
+                 {/*=========================== handle when user login show logout btn as wll as login btn ============================*/}
                   <div className="d-flex gap-2">
                     {!localStorage.getItem("token") ? 
                     (<><Link className="btn btn-warning mx-1 rounded-4" to="/login"> login </Link>
-                        <Link className="btn btn-warning mx-1 rounded-4" to="/Register"> Register</Link>
-                    </>) : (<>
+                        <Link className="btn btn-warning mx-1 rounded-4" to="/Register"> Register</Link></>):(<>
                       <Link to="/user" className="btn btn-danger rounded-5">
                         <i className="fa-solid fa-user-shield"></i>
                       </Link></>)}

@@ -68,7 +68,7 @@ const TaskIteamsCard = (props) => {
               {task?.priority}
             </span>
 
-            {/* update Task Modal =========================================================================== */}
+            {/*========================================== update Task Modal ================================================ */}
             <div className="modal fade" id={`editFormModal${task._id}`} aria-hidden="true"  aria-labelledby="editFormModalLabel" tabIndex="-1">
               <div className="modal-dialog modal-dialog-centered">
                 <div className="bg-color-gray p-2 modal-content">
@@ -124,7 +124,10 @@ const TaskIteamsCard = (props) => {
               </div>
             </div>
 
-            {/* ======================== Dropdoun for Task edit, delete ======================================*/}
+            {/* ===================================== User Assigne  ========================================*/}
+            
+
+            {/* ===================================== Dropdoun for Task edit, delete ========================================*/}
             <div className="btn-group cursor-pointer">
               <i className="fa-solid fa-ellipsis px-4 py-1" data-bs-toggle="dropdown" aria-expanded="false"></i>
               <ul className="dropdown-menu bg-color-whitis p-2">
@@ -145,13 +148,14 @@ const TaskIteamsCard = (props) => {
                 </div>
               </ul>
             </div>
-            {/* ============================================================================================ */}
 
+
+          {/* ===================================== Remaining Card Parts================================================= */}
           </div>
-          <h4 className="fs-5 mb-0 pt-2">{task?.title}</h4>
-          <p className="fs-6 mb-0 py-2">{task?.description}</p>
-          <span className="fw-bold fs-6">Dedline:</span>
-          <span>12/15</span>
+            <h4 className="fs-5 mb-0 pt-2">{task?.title}</h4>
+            <p className="fs-6 mb-0 py-2">{task?.description}</p>
+            <span className="fw-bold fs-6">Dedline:</span>
+            <span>12/15</span>
         </div>
       </div>
     </>
