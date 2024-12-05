@@ -1,7 +1,6 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
 import Task from "../components/Task";
-import Alert from "../components/Alert";
 
 const Home = () => {
   return (
@@ -21,7 +20,6 @@ const Home = () => {
             {/* Task container */}
             <div className="col-md-10 mt-4 mt-md-0">
               <div>
-                <Alert/> 
                 <Task />
               </div>
             </div>

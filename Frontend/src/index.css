@@ -44,7 +44,28 @@ body {
   max-height: 80%;
 }
 
+
 /* media for computer screen  */
+@media only screen and (min-width: 992px) {
+  .display-none-IncomputerScreen {
+    display: none;
+  }
+
+  .Alert-for-computerScreen{
+    position: absolute;
+    width: 76%; 
+    top: 11%;
+    left: 20%;
+  }
+}
+
+.Alert-for-mobileScreen{
+  position: absolute;
+    width: 94%; 
+    top: 47%;
+    left: 3%;
+}
+
 @media only screen and (min-width: 770px) {
   .height-task-container {
     height: 86vh;
@@ -59,8 +80,9 @@ body {
     height: 88%;
   }
 
-  .display-none-IncomputerScreen {
-    display: none;
+  .sidebar-container-content-height {
+    overflow-y: auto;
+    height: 88%;
   }
 
   .searchbox{
@@ -76,7 +98,7 @@ body {
 
   .task-container-content-height {
     overflow-y: auto;
-    height: 70vh;
+    height: 60vh;
   }
 
   .display-none-InMobileScreen {
@@ -86,7 +108,26 @@ body {
   .searchbox{
     width: 150px;
   }
+
+  .progresBar-small-text-forMobile{
+    font-size: x-small;
+  }
+
+  .sideBar-small-text-forMobile{
+    font-size: small;
+  }
 }
+
+/* media for small mobile phone  */
+@media only screen and (max-width: 350px) {
+  .sideBar-text-hide-forMobile, .searchbox-component-formobile {
+     display: none;
+  }
+
+  
+}
+
+sidebar-component-formobile
 
 /* General container styling */
 .scrollable {

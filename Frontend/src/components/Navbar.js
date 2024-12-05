@@ -32,15 +32,14 @@ const Navbar = () => {
               {/*================================================== Search Box ========================================================*/}
               <div className="d-flex justify-content-between">
                 {location.pathname === '/' ?(<>
-                  <div>
+                  <div className="searchbox-component-formobile">
                     <input type="search" className="form-control rounded-4 py-2 px-4 searchbox" id="search" aria-describedby="emailHelp" placeholder="Search Project" onInput={event=> OnSearch(event)} onKeyDown={event=> OnSearch(event)}/>
                   </div></>):(<><div onClick={navigateToHome}><h5 className="mt-1 px-2 cursor-pointer">TaskManager</h5></div> </> )}
                 
 
-                
                  {/*=========================== handle when user login show logout btn as wll as login btn ============================*/}
                   <div className="d-flex align-items-center align-self-center gap-2">
-                    <div className="mx-2"><TaskFilter/></div>
+                    <div className="mx-md-2 progresBar-small-text-forMobile"><TaskFilter/></div>
                     
                     {!localStorage.getItem("token") ? 
                     (<><Link className="btn btn-warning mx-1 rounded-4" to="/login"> login </Link>

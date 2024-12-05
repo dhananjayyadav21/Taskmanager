@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useState } from "react";
 import { SharedServive } from "../services/SharedService";
 import taskContext from "../context/Task/taskContext";
 import AuthContext from "../context/Auth/AuthContext";
@@ -60,11 +60,6 @@ const TaskIteamsCard = (props) => {
    }
 
    //========================================== Handle Asign user ===================================================
-   const ref = useRef();
-   const refClose = useRef();
-
-   console.log("current auser user------------->",task.Auser);
- 
    const handleAsignUserClick = (currentTask)=>{
       SetUTask({
         id: currentTask._id,
@@ -75,8 +70,6 @@ const TaskIteamsCard = (props) => {
         Auser:currentTask.Auser
       });
       getAllUser();
-      console.log("currenbnt task------------->",currentTask);
-      console.log("current user------------->",allUser);
    }
    
    const closeAssignClick = (user,task)=>{
@@ -88,10 +81,6 @@ const TaskIteamsCard = (props) => {
       status: task.status,
       Auser:user.name
     });
-
-    console.log("updated task------------->",task);
-    console.log("updated user------------->",user);
-    console.log("updated Auser------------->",user.name);
    }
 
   return (
