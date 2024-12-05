@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { SharedServive } from "../services/SharedService";
 import taskContext from "../context/Task/taskContext";
 import AuthContext from "../context/Auth/AuthContext";
@@ -12,6 +12,10 @@ const TaskIteamsCard = (props) => {
 
   const GetAllUser = useContext(AuthContext);
   const {allUser, getAllUser} = GetAllUser;
+
+  const capitalizeFirstLetter = (val) => {
+    return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+  }
 
   //=========================================== Handle Edit Task ================================================
   const [uTask, SetUTask] = useState({
@@ -58,6 +62,8 @@ const TaskIteamsCard = (props) => {
    //========================================== Handle Asign user ===================================================
    const ref = useRef();
    const refClose = useRef();
+
+   console.log("current auser user------------->",task.Auser);
  
    const handleAsignUserClick = (currentTask)=>{
       SetUTask({
@@ -68,9 +74,7 @@ const TaskIteamsCard = (props) => {
         status: currentTask.status,
         Auser:currentTask.Auser
       });
-      
       getAllUser();
-      // ref.current.click();
       console.log("currenbnt task------------->",currentTask);
       console.log("current user------------->",allUser);
    }
@@ -88,7 +92,6 @@ const TaskIteamsCard = (props) => {
     console.log("updated task------------->",task);
     console.log("updated user------------->",user);
     console.log("updated Auser------------->",user.name);
-    // refClose.current.click();
    }
 
   return (
@@ -154,45 +157,19 @@ const TaskIteamsCard = (props) => {
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* ===================================== User Assigne  ========================================*/}
-            <div  className="modal fade" id="AssignUserContainer" aria-hidden="true" aria-labelledby="AssignUserContainerLabel" tabIndex="-1" >
-              <div className="modal-dialog modal-dialog-centered">
-                <div className="deleteacount modal-content bg-color-gray">
-                  <div className="modal-header">
-                    <h5 className="modal-title text-center" id="AssignUserContainerLabel"> Assign User </h5>
-                    <button  type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                    ></button>
-                  </div>
-                  <div className="modal-body"> </div>
-                  <div className="modal-footer d-none">
-                    <button  ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button  type="button" className="btn btn-danger"> Assign </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <a ref={ref} className="btn btn-primary d-none" data-bs-toggle="modal"  href="#AssignUserContainer" role="button"> Open modal
-            </a>
-            
+            </div>  
 
             {/* ===================================== Dropdoun for Task edit, delete ========================================*/}
             <div className="btn-group cursor-pointer">
               <i className="fa-solid fa-ellipsis px-4 py-1" data-bs-toggle="dropdown" aria-expanded="false"></i>
-              <ul className="dropdown-menu bg-color-whitis p-2">
 
-                <div className="gap-2 cursor-pointer"  data-bs-target={`#editFormModal${task._id}`}  data-bs-toggle="modal"  onClick={() => handleEditForm(task)} >
+              <ul className="dropdown-menu bg-color-whitis px-2 py-0 ">
+                <div className="my-2 cursor-pointer"  data-bs-target={`#editFormModal${task._id}`}  data-bs-toggle="modal"  onClick={() => handleEditForm(task)} >
                   <i className="fa-regular fa-pen-to-square"></i>
                   <span className="mx-2 fw-bold">Edit Task</span>
                 </div>
 
-                <div className="gap-2 py-2 cursor-pointer" onClick={()=> handleAsignUserClick(task)}>
-                  <i className="fa-regular fa-user"></i>
-                  <span className="mx-2 fw-bold">Assign User</span>
-                </div>
-
-                <div className="gap-2 cursor-pointer" onClick={()=> handleDeleteTask(task)} >
+                <div className="my-2 cursor-pointer" onClick={()=> handleDeleteTask(task)} >
                   <i className="fa-regular fa-trash-can"></i>
                   <span className="mx-2 fw-bold">Delete Task</span>
                 </div>
@@ -201,32 +178,39 @@ const TaskIteamsCard = (props) => {
 
 
           {/* ===================================== Remaining Card Parts================================================= */}
-          </div>
-            <h4 className="fs-5 mb-0 pt-2">{task?.title}</h4>
-            <p className="fs-6 mb-0 py-2">{task?.description}</p>
-            <div></div>
+            </div>
+              <h4 className="fs-5 mb-0 pt-2">{capitalizeFirstLetter(task?.title.slice(0,18))}</h4>
+              <p className="fs-6 mb-0 py-2">{capitalizeFirstLetter( task?.description.slice(0,100))}</p>
   
-            <div className="dropdown my-2">
- 
-              {/* {!task.Auser? }   */}
-
-              <a className="btn  dropdown-toggle border border-1 border-dark text-start" href="/" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style={{width:"70%"}} onClick={()=> handleAsignUserClick(task)}>
-              Not Assigned
-              </a>
-
-              <ul className="dropdown-menu rounded-3 p-1" aria-labelledby="dropdownMenuLink" style={{width:"100%"}}> 
-               {allUser.map((user)=> 
-                <li key={user._id}>
-                  <div className="dropdown-item container rounded-2 my-1 py-1 cursor-pointer d-flex justify-content-start align-items-center align-self-center bg-color-whiti" style={{width:"100%"}} onClick={()=>closeAssignClick(user,task)}>
+              <div className="dropdown m-0 p-0">
+                <a className="btn text-start p-0 m-0 " href="/" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style={{width:"70%"}} onClick={()=> handleAsignUserClick(task)}>    
+              {task?.Auser === "Not Assigned"?(<>
+                  <div className="dropdown-item container rounded-2 my-1 py-1 cursor-pointer  bg-color-whiti" style={{width:"100%"}}>
+                    <div>
+                      <h6 className='py-1 mx-3 mb-0'>Not Assigned</h6>
+                    </div>
+                  </div> </>):(<>
+                  <div className="dropdown-item container rounded-2 my-1 py-1 cursor-pointer d-flex justify-content-start align-items-center align-self-center bg-color-whiti" style={{width:"100%"}}>
                     <img src="/assets/img/avtar.png" alt="User Avatar" className="rounded-circle mx-2" width="30" height="30" />
                     <div>
-                      <h6 className='m-0'>{user.name}</h6>
-                      <p className='m-0'>{user._id}</p>
+                      <h6 className='m-0'>{task.Auser}</h6>
                     </div>
-                  </div>
-                </li>)}
-              </ul>
-            </div>
+                  </div></>)}
+                </a>
+
+                <ul className="dropdown-menu rounded-3 p-1" aria-labelledby="dropdownMenuLink" style={{width:"100%"}}> 
+                {allUser.map((user)=> 
+                  <li key={user._id}>
+                    <div className="dropdown-item container rounded-2 my-1 py-1 cursor-pointer d-flex justify-content-start align-items-center align-self-center bg-color-whiti" style={{width:"100%"}} onClick={()=>closeAssignClick(user,task)}>
+                      <img src="/assets/img/avtar.png" alt="User Avatar" className="rounded-circle mx-2" width="30" height="30" />
+                      <div>
+                        <h6 className='m-0'>{user.name}</h6>
+                        <p className='m-0'>{user._id}</p>
+                      </div>
+                    </div>
+                  </li>)}
+                </ul>
+              </div>
 
             <span className="fw-bold fs-6">Dedline:</span>
             <span className="mx-1">{new Date(task.deadline).toLocaleString()}</span>
