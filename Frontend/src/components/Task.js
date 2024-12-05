@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import TaskIteamsCard from "./TaskIteamsCard";
 import taskContext from "../context/Task/taskContext";
 import { useNavigate } from "react-router-dom";
-import Alert from "./Alert";
 
 const Task = () => {
   // get context function using context api
@@ -47,7 +46,6 @@ const Task = () => {
   return (
     <>
       {/* Main container for Task */}
-      <Alert/>
       {/*============================================= for mobile view ==============================================*/}
       <div className="container">
           <div className=" mb-2 display-none-IncomputerScreen">
@@ -60,7 +58,6 @@ const Task = () => {
               </div>
 
               <div className="col-1 col-md-0"></div>
-
               <div className="col-4 bg-color-gray rounded-md-4 rounded-3 py-2 px-3" onClick={showProgress}>
                 <div className="d-flex justify-content-center align-self-center align-items-center gap-2">
                   <span className="btn btn-warning rounded-circle p-1"></span>

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { SharedServive } from "../services/SharedService";
 import taskContext from "../context/Task/taskContext";
 import AuthContext from "../context/Auth/AuthContext";
@@ -52,9 +52,9 @@ const TaskIteamsCard = (props) => {
       status: uTask.status,
     });
     if (isSuccess) {
-      showAlert("Update Task Successfuly", "warning");
+      showAlert("Task Update Successfuly", "warning");
     } else {
-      showAlert("This Task Not Update Due To Sequrity Purpose", "danger")
+      showAlert("This task you can not update", "danger")
     }
     
   };
@@ -68,9 +68,9 @@ const TaskIteamsCard = (props) => {
    const handleDeleteTask = async (task)=>{
     const isSuccess = await deleteTask(task._id);
     if (isSuccess) {
-      showAlert("Delete Task Successfuly", "success");
+      showAlert("Task Deleted Successfuly", "success");
     }else{
-      showAlert("You Not Delete This Task Due To Sequrity Purpose", "danger");
+      showAlert("This task you can not delete", "danger");
     }
    }
 
@@ -98,18 +98,16 @@ const TaskIteamsCard = (props) => {
     });
     if (isSuccess) {
       setSelectedUser(user.name);
-      showAlert(`${task.title} Task Assign to ${user.name} Successfuly`, "info")
+      showAlert(`${capitalizeFirstLetter(task.title)} task assigned to ${user.name} you Successfuly`, "info")
     }else{
-      showAlert(`${task.title} Task You not Not Assign to ${user.name}`, "danger")
+      showAlert(`${capitalizeFirstLetter(task.title)} can not assigned to ${user.name}`, "danger")
     }
    }
 
    const [selectedUser, setSelectedUser] = useState(task?.Auser);
 
    /* ========================================================================================================================== */
-   useEffect(()=>{
-    ExpiredTask();
-   },[])
+
 
    
   return (

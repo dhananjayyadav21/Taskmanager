@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link,useLocation, useNavigate } from "react-router-dom";
 import TaskFilter from "./TaskFilter";
 import taskContext from "../context/Task/taskContext";
+import Alert from './Alert';
 
 const Navbar = () => {
 
@@ -36,12 +37,15 @@ const Navbar = () => {
                     <input type="search" className="form-control rounded-4 py-2 px-4 searchbox" id="search" aria-describedby="emailHelp" placeholder="Search Project" onInput={event=> OnSearch(event)} onKeyDown={event=> OnSearch(event)}/>
                   </div></>):(<><div onClick={navigateToHome}><h5 className="mt-1 px-2 cursor-pointer">TaskManager</h5></div> </> )}
                 
+                   <div>
+                    <Alert/>
+                   </div>
 
+                  
                  {/*=========================== handle when user login show logout btn as wll as login btn ============================*/}
                   <div className="d-flex align-items-center align-self-center gap-2">
 
                     {location.pathname === "/" ? (<div className="mx-md-2 progresBar-small-text-forMobile"><TaskFilter/></div>) : ""}
-                    
                     
                     {!localStorage.getItem("token") ? 
                     (<><Link className="btn btn-warning mx-1 rounded-4" to="/login"> login </Link>

@@ -54,8 +54,6 @@ body {
   .Alert-for-computerScreen{
     position: absolute;
     width: 76%; 
-    top: 12%;
-    left: 20%;
   }
 }
 
@@ -81,18 +79,15 @@ body {
   .searchbox{
     width: 250px;
   }
+
+  .searchbox-component-formobile{
+     font-size: x-small;
+  }
 }
 
 @media only screen and (max-width: 992px) {
   .height-task-container {
     max-height: 80vh;
-  }
-
-  .Alert-for-computerScreen{
-    position: absolute;
-    width: 79%; 
-    top: 11%;
-    left: 19%;
   }
 } 
 
@@ -120,14 +115,7 @@ body {
   }
 
   .sideBar-small-text-forMobile{
-    font-size: small;
-  }
-
-  .Alert-for-mobileScreen{
-    position: absolute;
-      width: 96%; 
-      top: 10%;
-      left: 2%;
+    font-size: x-small;
   }
 }
 
@@ -138,6 +126,15 @@ body {
   }
 }
 
+@media only screen and (max-width: 410px) {
+  .Alert-Screen{
+    position: absolute;
+      width: 92%;
+      z-index: 1000;
+      top: 16px;
+      right: 15px;
+  }
+}
 
 /*============================================================ styl for calender =====================================================*/
 .date-picker-container {
