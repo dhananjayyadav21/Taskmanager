@@ -1,15 +1,10 @@
 import React, { useContext, useEffect, useRef } from "react";
 import AuthContext from "../context/Auth/AuthContext";
-import AlertContext from "../context/Alert/AlertContext";
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const context = useContext(AuthContext);
   const { user, getUser } = context;
-
-  const Alertcontext = useContext(AlertContext);
-  const {showAlert} = Alertcontext;
-
 
   const token = localStorage.getItem("token");
   const navigate = useNavigate();

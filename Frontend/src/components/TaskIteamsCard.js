@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { SharedServive } from "../services/SharedService";
 import taskContext from "../context/Task/taskContext";
 import AuthContext from "../context/Auth/AuthContext";
@@ -42,16 +42,21 @@ const TaskIteamsCard = (props) => {
   };
 
   //handle form sumbit and task update
-  const handleFormSumbit = (e) => {
+  const handleFormSumbit = async (e) => {
     e.preventDefault();
-    updateTask({
+   const isSuccess = await updateTask({
       id: uTask.id,
       priority: uTask.priority,
       title: uTask.title,
       description: uTask.description,
       status: uTask.status,
     });
-    showAlert("Update Task Successfuly", "warning")
+    if (isSuccess) {
+      showAlert("Update Task Successfuly", "warning");
+    } else {
+      showAlert("This Task Not Update Due To Sequrity Purpose", "danger")
+    }
+    
   };
 
   //handle form onchange when user input data
@@ -60,9 +65,13 @@ const TaskIteamsCard = (props) => {
   };
 
   //========================================== Handle Delete Task =================================================
-   const handleDeleteTask = (task)=>{
-    deleteTask(task._id);
-    showAlert("Delete Task Successfuly", "danger")
+   const handleDeleteTask = async (task)=>{
+    const isSuccess = await deleteTask(task._id);
+    if (isSuccess) {
+      showAlert("Delete Task Successfuly", "success");
+    }else{
+      showAlert("You Not Delete This Task Due To Sequrity Purpose", "danger");
+    }
    }
 
    //========================================== Handle Asign user ===================================================
@@ -78,8 +87,8 @@ const TaskIteamsCard = (props) => {
       getAllUser();
    }
    
-   const closeAssignClick = (user,task)=>{
-    updateTask({
+   const closeAssignClick = async (user,task)=>{
+    const isSuccess = await updateTask({
       id: task._id,
       priority: task.priority,
       title: task.title,
@@ -87,9 +96,22 @@ const TaskIteamsCard = (props) => {
       status: task.status,
       Auser:user.name
     });
-    showAlert(`${task.title} Task Assign to ${user.name} Successfuly`, "info")
+    if (isSuccess) {
+      setSelectedUser(user.name);
+      showAlert(`${task.title} Task Assign to ${user.name} Successfuly`, "info")
+    }else{
+      showAlert(`${task.title} Task You not Not Assign to ${user.name}`, "danger")
+    }
    }
 
+   const [selectedUser, setSelectedUser] = useState(task?.Auser);
+
+   /* ========================================================================================================================== */
+   useEffect(()=>{
+    ExpiredTask();
+   },[])
+
+   
   return (
     <>
       <div className="col-12">
@@ -180,7 +202,8 @@ const TaskIteamsCard = (props) => {
   
               <div className="dropdown m-0 p-0">
                 <a className="btn text-start p-0 m-0 " href="/" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style={{width:"70%"}} onClick={()=> handleAsignUserClick(task)}>    
-              {task?.Auser === "Not Assigned"?(<>
+             
+              {selectedUser === null?(<>
                   <div className="dropdown-item container rounded-2 my-1 py-1 cursor-pointer  bg-color-whiti" style={{width:"100%"}}>
                     <div>
                       <h6 className='py-1 mx-3 mb-0'>Not Assigned</h6>
@@ -189,7 +212,7 @@ const TaskIteamsCard = (props) => {
                   <div className="dropdown-item container rounded-2 my-1 py-1 cursor-pointer d-flex justify-content-start align-items-center align-self-center bg-color-whiti" style={{width:"100%"}}>
                     <img src="/assets/img/avtar.png" alt="User Avatar" className="rounded-circle mx-2" width="30" height="30" />
                     <div>
-                      <h6 className='m-0'>{task.Auser}</h6>
+                      <h6 className='m-0'>{selectedUser}</h6>
                     </div>
                   </div></>)}
                 </a>
@@ -201,7 +224,7 @@ const TaskIteamsCard = (props) => {
                       <img src="/assets/img/avtar.png" alt="User Avatar" className="rounded-circle mx-2" width="30" height="30" />
                       <div>
                         <h6 className='m-0'>{user.name}</h6>
-                        <p className='m-0'>{user._id}</p>
+                        <p className='m-0'>{user._id.slice(0,12)}</p>
                       </div>
                     </div>
                   </li>)}

@@ -8,7 +8,7 @@ body {
   max-height: 100vh;
 }
 
-/* bacground  colors  */
+/*=================================================== bacground  colors ========================================================*/
 .bg-color-gray {
   background: #f0efef;
 }
@@ -38,14 +38,14 @@ body {
   height: 100vh;
 }
 
-/* taskmanager logo area for login, register and profile page */
+/*===================================== taskmanager logo area for login, register and profile page =====================================*/
 .TaskManagerlogo-area {
   max-width: 100%;
   max-height: 80%;
 }
 
 
-/* media for computer screen  */
+/*====================================================== media for computer screen =====================================================*/
 @media only screen and (min-width: 992px) {
   .display-none-IncomputerScreen {
     display: none;
@@ -96,7 +96,7 @@ body {
   }
 } 
 
-/* media for mobile phone  */
+/*======================================================== media for mobile phone  =====================================================*/
 @media only screen and (max-width: 770px) {
   .height-task-container {
     max-height: 80vh;
@@ -136,13 +136,33 @@ body {
   .sideBar-text-hide-forMobile, .searchbox-component-formobile {
      display: none;
   }
-
-  
 }
 
-sidebar-component-formobile
 
-/* General container styling */
+/*============================================================ styl for calender =====================================================*/
+.date-picker-container {
+  position: relative;
+  background: rgba(255, 255, 255, 0);
+  padding: 2px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+input[type="datetime-local"] {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+input[type="datetime-local"]:focus {
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+  border-color: #007bff;
+}
+
+/*=========================================================== General container styling ================================================*/
 .scrollable {
   overflow-y: scroll;
 }

@@ -18,6 +18,7 @@ const Sidebar = () => {
       title: newTask.title,
       description: newTask.description,
       status: newTask.status,
+      deadline: newTask.deadline
     });
     showAlert("New task added successfully", "success");
   };
@@ -33,6 +34,7 @@ const Sidebar = () => {
     title: "",
     description: "",
     status: "",
+    deadline:""
   });
 
   return (
@@ -118,7 +120,7 @@ const Sidebar = () => {
                           </div>
 
                           <div className="container my-2">
-                            <select className=" form-select" aria-label="Default select example" name="status" value={newTask.status} onChange={handleOnChange}  >
+                            <select className=" form-select" aria-label="Default select example" name="status" value={newTask.status} onChange={handleOnChange} >
                               <option value="" disabled hidden>Status</option>
                               <option value="To Do">To Do</option>
                               <option value="On Progress">On Progress</option>
@@ -126,6 +128,11 @@ const Sidebar = () => {
                             </select>
                           </div>
                         </div>
+
+                        <div className="date-picker-container">
+                          <input type="datetime-local" id="dateInput" min={new Date().toISOString().slice(0, -8)}  name="deadline" value={newTask.deadline} onChange={handleOnChange} />
+                        </div>
+
                         <div className="modal-footer">
                           <button type="submit" className="btn btn-primary" data-bs-dismiss="modal" aria-label="Close" disabled={newTask.title.length < 5 || newTask.description.length < 5}>Save Task
                           </button>
@@ -139,7 +146,7 @@ const Sidebar = () => {
 
             {/*=========================================== Add New Task btn =====================================================*/}
             <div
-              className="bg-blue border rounded-4 shadow-sm p-1 d-flex justify-content-center align-self-center align-items-center gap-3 mt-3"
+              className="bg-blue cursor-pointer border rounded-4 shadow-sm p-1 d-flex justify-content-center align-self-center align-items-center gap-3 mt-3"
               data-bs-target="#AddtaskformModal"
               data-bs-toggle="modal" >
               <i className="fa-sharp-duotone fa-solid fa-plus"></i>

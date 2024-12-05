@@ -54,7 +54,7 @@ router.post(
       return res.status(400).json({ errors: validationErrors.array() });
 
     try {
-      const { priority, title, description, status } = req.body;
+      const { priority, title, description, status,deadline } = req.body;
 
       //create new task
       const task = new Task({
@@ -62,6 +62,7 @@ router.post(
         title,
         description,
         status,
+        deadline,
         user: req.user.id,
       });
 
