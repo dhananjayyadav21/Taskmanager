@@ -39,7 +39,9 @@ const Navbar = () => {
 
                  {/*=========================== handle when user login show logout btn as wll as login btn ============================*/}
                   <div className="d-flex align-items-center align-self-center gap-2">
-                    <div className="mx-md-2 progresBar-small-text-forMobile"><TaskFilter/></div>
+
+                    {location.pathname === "/" ? (<div className="mx-md-2 progresBar-small-text-forMobile"><TaskFilter/></div>) : ""}
+                    
                     
                     {!localStorage.getItem("token") ? 
                     (<><Link className="btn btn-warning mx-1 rounded-4" to="/login"> login </Link>

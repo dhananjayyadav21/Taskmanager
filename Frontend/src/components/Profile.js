@@ -35,7 +35,6 @@ const Profile = () => {
     localStorage.removeItem("token");
     refClose.current.click();
     navigate("/login");
-    showAlert("You are log out", "warning");
   };
 
   
