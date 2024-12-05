@@ -2,10 +2,14 @@ import React, { useContext, useState } from "react";
 import { SharedServive } from "../services/SharedService";
 import taskContext from "../context/Task/taskContext";
 import AuthContext from "../context/Auth/AuthContext";
+import AlertContext from "../context/Alert/AlertContext";
 
 const TaskIteamsCard = (props) => {
   // take task as a props from where use Taskcarditems
   const { task } = props;
+
+  const showcontext = useContext(AlertContext);
+  const {showAlert} = showcontext;
 
   const context = useContext(taskContext);
   const { updateTask,deleteTask } = context;
@@ -47,6 +51,7 @@ const TaskIteamsCard = (props) => {
       description: uTask.description,
       status: uTask.status,
     });
+    showAlert("Update Task Successfuly", "warning")
   };
 
   //handle form onchange when user input data
@@ -57,6 +62,7 @@ const TaskIteamsCard = (props) => {
   //========================================== Handle Delete Task =================================================
    const handleDeleteTask = (task)=>{
     deleteTask(task._id);
+    showAlert("Delete Task Successfuly", "danger")
    }
 
    //========================================== Handle Asign user ===================================================
@@ -81,6 +87,7 @@ const TaskIteamsCard = (props) => {
       status: task.status,
       Auser:user.name
     });
+    showAlert(`${task.title} Task Assign to ${user.name} Successfuly`, "info")
    }
 
   return (

@@ -21,8 +21,6 @@ const Task = () => {
     // eslint-disable-next-line
   }, []);
 
-
-
   // functions for mobile device show task at a time one 
   const showToDo = ()=>{
     setTodo("");
