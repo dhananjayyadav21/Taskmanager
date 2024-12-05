@@ -1,7 +1,6 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { SharedServive } from "../services/SharedService";
 import taskContext from "../context/Task/taskContext";
-import AsignUsers from "./AsignUsers";
 import AuthContext from "../context/Auth/AuthContext";
 
 const TaskIteamsCard = (props) => {
@@ -71,9 +70,11 @@ const TaskIteamsCard = (props) => {
       });
       
       getAllUser();
-      ref.current.click();
+      // ref.current.click();
+      console.log("currenbnt task------------->",currentTask);
+      console.log("current user------------->",allUser);
    }
-
+   
    const closeAssignClick = (user,task)=>{
     updateTask({
       id: task._id,
@@ -84,8 +85,10 @@ const TaskIteamsCard = (props) => {
       Auser:user.name
     });
 
-    refClose.current.click();
     console.log("updated task------------->",task);
+    console.log("updated user------------->",user);
+    console.log("updated Auser------------->",user.name);
+    // refClose.current.click();
    }
 
   return (
@@ -162,7 +165,7 @@ const TaskIteamsCard = (props) => {
                     <button  type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"
                     ></button>
                   </div>
-                  <div className="modal-body">{allUser.map((user)=><AsignUsers closeAssignClick={closeAssignClick} user={user} task={task} UserName={user.name} UserId={user._id}/>)} </div>
+                  <div className="modal-body"> </div>
                   <div className="modal-footer d-none">
                     <button  ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     <button  type="button" className="btn btn-danger"> Assign </button>
@@ -202,6 +205,29 @@ const TaskIteamsCard = (props) => {
             <h4 className="fs-5 mb-0 pt-2">{task?.title}</h4>
             <p className="fs-6 mb-0 py-2">{task?.description}</p>
             <div></div>
+  
+            <div className="dropdown my-2">
+ 
+              {/* {!task.Auser? }   */}
+
+              <a className="btn  dropdown-toggle border border-1 border-dark text-start" href="/" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style={{width:"70%"}} onClick={()=> handleAsignUserClick(task)}>
+              Not Assigned
+              </a>
+
+              <ul className="dropdown-menu rounded-3 p-1" aria-labelledby="dropdownMenuLink" style={{width:"100%"}}> 
+               {allUser.map((user)=> 
+                <li key={user._id}>
+                  <div className="dropdown-item container rounded-2 my-1 py-1 cursor-pointer d-flex justify-content-start align-items-center align-self-center bg-color-whiti" style={{width:"100%"}} onClick={()=>closeAssignClick(user,task)}>
+                    <img src="/assets/img/avtar.png" alt="User Avatar" className="rounded-circle mx-2" width="30" height="30" />
+                    <div>
+                      <h6 className='m-0'>{user.name}</h6>
+                      <p className='m-0'>{user._id}</p>
+                    </div>
+                  </div>
+                </li>)}
+              </ul>
+            </div>
+
             <span className="fw-bold fs-6">Dedline:</span>
             <span className="mx-1">{new Date(task.deadline).toLocaleString()}</span>
         </div>

@@ -9,7 +9,7 @@ const Navbar = () => {
   const {SearchTask} = taskcontext;
 
   const OnSearch =(e)=>{
-    if (e.key=="Enter" || (e.type==="input" && e.target.value.length==0)) {
+    if (e.key==="Enter" || (e.type==="input" && e.target.value.length===0)) {
       SearchTask(e.target.value);
     }
   }

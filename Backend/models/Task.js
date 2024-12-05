@@ -8,6 +8,7 @@ const TaskSchema = new Schema({
     },
     Auser:{
       type:String,
+      default:'none'
     },
     priority:{
         type:String,
@@ -29,6 +30,6 @@ const TaskSchema = new Schema({
         default: Date.now
     }
 });
-
+TaskSchema.index({ title: 'text', description: 'text' });
 module.exports = mongoose.model('task',TaskSchema);
 

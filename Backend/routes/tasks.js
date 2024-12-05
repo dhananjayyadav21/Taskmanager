@@ -94,7 +94,7 @@ router.put(
   ],
   async (req, res) => {
 
-    const { priority, title, description, status } = req.body;
+    const { priority, title, description, status, Auser } = req.body;
 
     try {
     
@@ -116,6 +116,10 @@ router.put(
 
       if (status) {
         newTask.status = status;
+      }
+
+      if(Auser){
+        newTask.Auser = Auser;
       }
 
       //finde task with particular id(":id")
@@ -165,6 +169,21 @@ router.delete("/delete/:id", fetchUser, async (req, res) => {
   } catch (error) {
     console.error(error.message);
     res.status(500).send("some internal server error accrued to delete task plese try with right credentials");
+  }
+});
+
+
+//======================================= search task  1.GET:/api/task/searchTask ===========================================
+router.get("/searchTask", async (req, res) => {
+  try {
+    const searchInput = req.query.input;
+    console.log(searchInput)
+    //fetch all notes from db
+    const task = (await Task.find()).filter(task=>task.title.includes(searchInput) || task.description.includes(searchInput));
+    res.send(task);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send(error.message);
   }
 });
 
