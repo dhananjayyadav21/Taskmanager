@@ -104,7 +104,7 @@ const TaskState = (props) => {
 
   return (
     <TaskContext.Provider
-      value={{ alltask, getAllTask, addTask, getTask, updateTask, deleteTask,SearchTask}}
+      value={{ alltask, getAllTask, addTask, getTask, updateTask, deleteTask,SearchTask,setTask}}
     >
       {props.children}
     </TaskContext.Provider>

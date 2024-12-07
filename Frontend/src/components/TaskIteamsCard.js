@@ -112,7 +112,7 @@ const TaskIteamsCard = (props) => {
    
   return (
     <>
-      <div className="col-12">
+      <div className="col-12" taskid={task._id}>
         <div className="bg-white border rounded-4 shadow-sm  p-3">
           <div className="d-flex justify-content-between align-self-center align-items-center">
             <span className={`badge bg-${SharedServive.getClassPriority(task.priority )}`}>
