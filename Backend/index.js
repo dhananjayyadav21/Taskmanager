@@ -46,7 +46,6 @@ wss.on("connection", (ws) => {
 // Create a queue
 const taskQueue = new TaskQueue("taskQueue");
 taskQueue.process(async(job)=>{
-    // console.log(job)
     broadcast(JSON.stringify(job));
 })
 
@@ -61,8 +60,8 @@ cron.schedule("*/30 * * * * *", async () => {
     });
 // console.log(expiredTasks)
     for (const task of expiredTasks) {
-    //   task.status = "expired";
-    //   await task.save();
+      task.status = "expired";
+      await task.save();
       await taskQueue.add({ event: "taskExpired", taskId: task._id });
     }
   } catch (error) {
