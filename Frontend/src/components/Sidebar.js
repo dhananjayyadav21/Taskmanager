@@ -52,7 +52,7 @@ const Sidebar = () => {
                   </div>
                   <p className="fw-bold mb-0 py-2 sideBar-text-hide-forMobile ">Expired Task</p>
                   <span className="fw-bold fs-4">
-                    { alltask.filter((task) => { return task.status === "Done"; }).length}
+                    { alltask.filter((task) => { return task.status === "Expired"; }).length}
                   </span>
                 </div>
               </div>
@@ -64,7 +64,7 @@ const Sidebar = () => {
                   </div>
                   <p className="fw-bold mb-0 py-2 sideBar-text-hide-forMobile ">All Active Task</p>
                   <span className="fw-bold fs-4">
-                    {alltask.filter((task) => { return task.status !== "Done";}).length}
+                    {alltask.filter((task) => { return (task.status === "On Progress")+(task.status === "To Do");}).length}
                   </span>
                 </div>
               </div>

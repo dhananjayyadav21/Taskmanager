@@ -8,7 +8,7 @@ const router = express.Router();
 //=======================================fetch all task without id  1.GET:/api/task/getAllTask ===========================================
 router.get("/getAllTask", async (req, res) => {
   try {
-    //fetch all notes from db
+    //fetch all task from db
     const task = await Task.find();
     res.send(task);
   } catch (error) {
@@ -20,7 +20,7 @@ router.get("/getAllTask", async (req, res) => {
 //============================== fetch all task from db by id  2.GET:/api/task/getAllTaskid ============================================
 router.get("/getAllTaskid", fetchUser, async (req, res) => {
   try {
-    //fetch all notes from db
+    //fetch all task from db
     const task = await Task.find({ user: req.user.id });
     res.send(task);
   } catch (error) {
@@ -178,8 +178,7 @@ router.delete("/delete/:id", fetchUser, async (req, res) => {
 router.get("/searchTask", async (req, res) => {
   try {
     const searchInput = req.query.input;
-    console.log(searchInput)
-    //fetch all notes from db
+    //fetch all task from db
     const task = (await Task.find()).filter(task=>task.title.includes(searchInput) || task.description.includes(searchInput));
     res.send(task);
   } catch (error) {

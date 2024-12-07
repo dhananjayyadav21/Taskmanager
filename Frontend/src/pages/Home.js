@@ -1,8 +1,10 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
 import Task from "../components/Task";
+import ExpiredDeadline from "./ExpiredDeadline";
 
 const Home = () => {
+
   return (
     <>
       <div className="container-fluid">
@@ -20,6 +22,7 @@ const Home = () => {
             {/* Task container */}
             <div className="col-md-10 mt-4 mt-md-0">
               <div>
+                <ExpiredDeadline/>
                 <Task />
               </div>
             </div>

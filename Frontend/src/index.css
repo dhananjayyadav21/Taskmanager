@@ -136,6 +136,18 @@ body {
   }
 }
 
+@media only screen and (min-width: 410px) {
+  .Alert-Screen{
+    position: absolute;
+      width: auto;
+      z-index: 1000;
+      top: 16px;
+      right: 18px;
+  }
+}
+
+
+
 /*============================================================ styl for calender =====================================================*/
 .date-picker-container {
   position: relative;

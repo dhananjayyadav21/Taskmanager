@@ -45,8 +45,8 @@ const TaskState = (props) => {
 
   // ============================== UPDATE TASK() using this function =========================================
   const updateTask = async (edittask) => {
-     // eslint-disable-next-line
     try {
+          // eslint-disable-next-line
       const json = await HttpService.PUT(
         `${GlobalUrls.UPDATTASK_URL}/${edittask.id}`,
         edittask
@@ -73,8 +73,8 @@ const TaskState = (props) => {
 
   //======================================== Delete task api call ===========================================
   const deleteTask = async (id) => {
-    // eslint-disable-next-line
     try {
+          // eslint-disable-next-line
       const json = await HttpService.DELETE(
         `${GlobalUrls.DELETTASK_URL}/${id}`
       );
