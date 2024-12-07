@@ -29,7 +29,7 @@ const broadcast = (message) => {
     // console.log("clients.length",clients.length)
   clients.forEach((client) => {
     if (client.readyState === WebSocket.OPEN) {
-      client.send(JSON.stringify(message));
+      client.send(message);
     }
   });
 };
@@ -51,7 +51,7 @@ taskQueue.process(async(job)=>{
 })
 
 // Schedule periodic task checking
-cron.schedule("* * * * *", async () => {
+cron.schedule("*/30 * * * * *", async () => {
     console.log("Dcheduler",new Date().toLocaleString())
   try {
     const now = new Date();
@@ -59,7 +59,7 @@ cron.schedule("* * * * *", async () => {
     const expiredTasks = await Task.find({
       deadline: { $lte: now }
     });
-
+// console.log(expiredTasks)
     for (const task of expiredTasks) {
     //   task.status = "expired";
     //   await task.save();

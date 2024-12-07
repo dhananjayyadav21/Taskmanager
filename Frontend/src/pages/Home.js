@@ -9,17 +9,16 @@ import taskContext from "../context/Task/taskContext";
 const Home = () => {
 
   const contextTask = useContext(taskContext);
-  const { setTask, alltaks } = contextTask;
+  const { setTask, alltask } = contextTask;
   useEffect(() => {
     // Connect to the WebSocket server when the component mounts
     WebSocketService.connect();
     // Add listener for incoming messages
     WebSocketService.addListener((data) => {
-      console.log(data);
       let wsdata = JSON.parse(data);
-      if (wsdata.event === "taskExpired") {
-        // const filteredArray = alltaks.filter((item) => item.id !== wsdata.taskId);
-        // setTask(filteredArray);
+      if (wsdata.event=="taskExpired") {
+        const filteredArray = alltask.filter((item) => item.id !== wsdata.taskId);
+        setTask(filteredArray);
       }
     });
 
