@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import TaskIteamsCard from "./TaskIteamsCard";
 import taskContext from "../context/Task/taskContext";
 import { useNavigate } from "react-router-dom";
+import AlertContext from "../context/Alert/AlertContext";
 
 const Task = () => {
   // get context function using context api
@@ -10,8 +11,12 @@ const Task = () => {
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
 
+  const ShowContext = useContext(AlertContext);
+  const {showAlert} = ShowContext;
+
   // use effect which is call befor all and call getAllTask function
   useEffect(() => {
+    showAlert("Plese Wait ", "info")
     if (token) {
       getAllTask();
     } else {
