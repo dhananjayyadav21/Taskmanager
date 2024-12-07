@@ -50,19 +50,23 @@ taskQueue.process(async(job)=>{
 })
 
 // Schedule periodic task checking
-cron.schedule("*/30 * * * * *", async () => {
-    console.log("Dcheduler",new Date().toLocaleString())
+cron.schedule("*/1 * * * * *", async () => {
   try {
     const now = new Date();
     // Find tasks with deadlines passed and status still active
     const expiredTasks = await Task.find({
-      deadline: { $lte: now }
+      deadline: { $lte: now },
+      status: { $ne: "Expired" }
     });
-// console.log(expiredTasks)
+    // console.log(expiredTasks)
     for (const task of expiredTasks) {
-      task.status = "expired";
+      task.status = "Expired";
       await task.save();
       await taskQueue.add({ event: "taskExpired", taskId: task._id });
+    }
+    const deleteResult = await Task.deleteMany({ status: "Expired" });
+    if (deleteResult.deletedCount>0) {
+     console.log(`${deleteResult.deletedCount} tasks with status "Expired" were deleted.`);
     }
   } catch (error) {
     console.error("Cron Job: Error checking and queuing expired tasks:", error);
