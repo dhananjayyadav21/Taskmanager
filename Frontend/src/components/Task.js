@@ -16,7 +16,7 @@ const Task = () => {
 
   // use effect which is call befor all and call getAllTask function
   useEffect(() => {
-    showAlert("Plese Wait ", "info")
+    showAlert("Plese Wait loading data", "info")
     if (token) {
       getAllTask();
     } else {
