@@ -25,7 +25,7 @@ MongoDB (Mongoose for database operations)
 JSON Web Tokens (JWT) for authentication
 
 ## Demo
-Live Demo(https://taskmanagersd.netlify.app)
+[Live Demo](https://taskmanagersd.netlify.app)
 
 ![4](https://github.com/user-attachments/assets/4919797c-9a19-493c-a1de-5b026a77fa38)
 ![1](https://github.com/user-attachments/assets/b58245c0-5b4b-4db5-86ec-350e7826f49d)
