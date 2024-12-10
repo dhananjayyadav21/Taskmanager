@@ -4,7 +4,7 @@ import taskContext from "../context/Task/taskContext";
 import { useNavigate } from "react-router-dom";
 import AlertContext from "../context/Alert/AlertContext";
 
-const Task = () => {
+const Task = (props) => {
   // get context function using context api
   const context = useContext(taskContext);
   const { alltask, getAllTask } = context;
@@ -19,6 +19,9 @@ const Task = () => {
     showAlert("Plese Wait loading data", "info")
     if (token) {
       getAllTask();
+      props.setProgress(30);
+      props.setProgress(60);
+      props.setProgress(100);
     } else {
       navigate("/login");
     }
@@ -99,7 +102,7 @@ const Task = () => {
                   <div className="row gap-2">
                     {/* each Task card */}
                     {alltask.filter((task) => task.status === "To Do").map((task,i) => {
-                        return <TaskIteamsCard key={i} task={task} />;
+                        return <TaskIteamsCard key={i} task={task}  />;
                       })}
                   </div>
                 </div>
@@ -156,8 +159,7 @@ const Task = () => {
           </div>
         </div>
      
-
-      <div className="container d-none">
+       <div className="container d-none">
         
       </div>
     </>

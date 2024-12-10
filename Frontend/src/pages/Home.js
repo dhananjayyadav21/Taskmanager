@@ -3,7 +3,9 @@ import Sidebar from "../components/Sidebar";
 import Task from "../components/Task";
 import ExpiredDeadline from "./ExpiredDeadline";
 
-const Home = () => {
+const Home = (props) => {
+
+  const { setProgress} = props;
 
   return (
     <>
@@ -23,7 +25,7 @@ const Home = () => {
             <div className="col-md-10 mt-4 mt-md-0">
               <div>
                 <ExpiredDeadline/>
-                <Task />
+                <Task setProgress={setProgress} /> 
               </div>
             </div>
           </div>
