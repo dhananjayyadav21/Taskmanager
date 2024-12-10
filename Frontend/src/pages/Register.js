@@ -60,7 +60,7 @@ const Register = () => {
   return (
     <>
       <div className="container mt-5">
-        <div className="row justify-content-center">
+        <div className="row justify-content-center  align-items-center">
 
         <div className=" col-md-4 mt-md-5">
             <div className="row"> 

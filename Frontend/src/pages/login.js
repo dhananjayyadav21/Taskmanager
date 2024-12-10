@@ -53,7 +53,6 @@ const Login = () => {
   return (
     <>
       <div className="container mt-5">
-         <Alert/>
         <div className="row d-flex flex-md-row-reverse justify-content-center align-items-center ">
 
         <div className=" col-md-4 mt-md-5">
