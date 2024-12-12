@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import HttpService from "../services/httpservice";
-
+const apiKey = process.env.REACT_APP_BLOB_UPLOAD_API_KEY;
+const blobUrl = process.env.REACT_APP_BLOB_UPLOAD_URL;
 const FileUpload = () => {
   const [file, setFile] = useState(null);
   const [isLoading, setLoading] = useState(false);
@@ -46,10 +47,10 @@ const FileUpload = () => {
       setLoading(true);
       const formData = new FormData();
       formData.append("file", await convertToBase64(file));
-      formData.append("apiKey",  process.env.BLOB_UPLOAD_API_KEY);
+      formData.append("apiKey",  apiKey);
       formData.append("filename", file.name);
       formData.append("requestType", "postData");
-      const response = await fetch(process.env.BLOB_UPLOAD_URL,
+      const response = await fetch(blobUrl,
         {
           method: "POST",
           body: formData,
