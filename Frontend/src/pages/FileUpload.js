@@ -46,11 +46,10 @@ const FileUpload = () => {
       setLoading(true);
       const formData = new FormData();
       formData.append("file", await convertToBase64(file));
-      formData.append("apiKey", "YOUR_SECRET_API_KEYSanjay");
+      formData.append("apiKey",  process.env.BLOB_UPLOAD_API_KEY);
       formData.append("filename", file.name);
       formData.append("requestType", "postData");
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxOSDO8EbDxlrfa_QNAap4y9IRG2csRnXP8oF4F-eDL0JtYzac2ttEm9wO4bnUsbrtD3g/exec",
+      const response = await fetch(process.env.BLOB_UPLOAD_URL,
         {
           method: "POST",
           body: formData,
