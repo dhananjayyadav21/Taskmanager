@@ -50,6 +50,7 @@ const Navbar = () => {
                     {!localStorage.getItem("token") ? 
                     (<><Link className="btn btn-warning mx-1 rounded-4" to="/login"> login </Link>
                         <Link className="btn btn-warning mx-1 rounded-4" to="/Register"> Register</Link></>):(<>
+                      <Link className="btn btn-warning mx-1 rounded-4" to="/fileupload"> fileupload </Link>
                       <Link to="/user" className="btn btn-danger rounded-5">
                         <i className="fa-solid fa-user-shield"></i>
                       </Link></>)}

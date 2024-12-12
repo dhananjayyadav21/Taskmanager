@@ -8,6 +8,7 @@ import TaskState from "./context/Task/TaskState";
 import Profile from "./components/Profile";
 import AuthState from "./context/Auth/AuthState";
 import AlertState from "./context/Alert/AlertState";
+import FileUpload from "./pages/FileUpload";
 function App() {
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/Register" element={<Register />} />
                 <Route path="/user" element={<Profile />} />
+                <Route path="/fileupload" element={<FileUpload/>} />
               </Routes>
             </Router>
           </TaskState>
