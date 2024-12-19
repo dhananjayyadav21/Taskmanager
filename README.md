@@ -15,9 +15,13 @@ Filter & Sort: Organize tasks by priority, status, or due date.
 
 ## 🛠️ Tech Stack
 Frontend: React.js
+
 Backend: Node.js & Express.js
+
 Database: MongoDB
+
 Styling: Bootstrap/ CSS
+
 JSON Web Tokens (JWT) for authentication
 
 ## Demo
