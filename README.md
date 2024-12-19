@@ -1,27 +1,23 @@
-# Task Manager
-A task management application built using the MERN (MongoDB, Express, React, Node.js) stack. 
-This app helps users organize and manage their tasks efficiently with features like task creation, updating, and deletion.
+# Task Manager App
+## 📝 Overview
+The Task Manager App is a simple yet powerful application designed to help users efficiently manage their tasks and boost productivity. Built with a modern tech stack, this app allows users to add, edit, delete, and organize their tasks with ease.
 
-## Features
-User Authentication: Secure login and signup with JWT-based authentication.
+## 🚀 Features
+Task Creation: Add new tasks with relevant details like title, description, and priority.
 
-Task Management: Create, read, update, and delete tasks.
+Edit & Update: Modify existing tasks to reflect changes in plans.
 
-Status Tracking: Mark tasks as complete or pending.
+Delete Tasks: Remove completed or unnecessary tasks.
 
-Responsive Design: Fully optimized for desktop and mobile screens.
+Mark Completion: Track your progress by marking tasks as complete.
 
-Data Persistence: Tasks are saved in a MongoDB database.
+Filter & Sort: Organize tasks by priority, status, or due date.
 
-## Technologies Used
-#### Frontend:
-React.js
-Bootstrap/Tailwind CSS (or any other CSS framework)
-
-#### Backend:
-Node.js
-Express.js
-MongoDB (Mongoose for database operations)
+## 🛠️ Tech Stack
+Frontend: React.js
+Backend: Node.js & Express.js
+Database: MongoDB
+Styling: Bootstrap/ CSS
 JSON Web Tokens (JWT) for authentication
 
 ## Demo
