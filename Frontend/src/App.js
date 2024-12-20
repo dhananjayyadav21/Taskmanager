@@ -23,6 +23,13 @@ function App() {
                 <Route path="/Register" element={<Register />} />
                 <Route path="/user" element={<Profile />} />
                 <Route path="/fileupload" element={<FileUpload/>} />
+
+                <Route path="https://taskmanagersd.netlify.app/" element={<Home />} />
+                <Route path="https://taskmanagersd.netlify.app/login" element={<Login />} />
+                <Route path="https://taskmanagersd.netlify.app/Register" element={<Register />} />
+                <Route path="https://taskmanagersd.netlify.app/user" element={<Profile />} />
+                <Route path="https://taskmanagersd.netlify.app/fileupload" element={<FileUpload/>} />
+
               </Routes>
             </Router>
           </TaskState>
