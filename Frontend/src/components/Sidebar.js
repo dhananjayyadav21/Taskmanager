@@ -46,11 +46,11 @@ const Sidebar = () => {
             {/*==================================== 3 progress details card container =========================================*/}
             <div className="row gap-md-2 content">
               <div className="col-md-12 col-4">
-                <div className="bg-color-gray border rounded-4 shadow-sm p-4 sideBar-small-text-forMobile">
+                <div className="bg-color-gray border rounded-4 shadow-sm p-4 ">
                   <div className="btn btn-danger rounded-circle mb-2">
                     <i className="fa-solid fa-calendar-xmark"></i>
                   </div>
-                  <p className="fw-bold mb-0 py-2 sideBar-text-hide-forMobile ">Expired Task</p>
+                  <p className="fw-bold mb-0 py-2 sideBar-text-hide-forMobile sideBar-small-text-forMobile">Expired Task</p>
                   <span className="fw-bold fs-4">
                     { alltask.filter((task) => { return task.status === "Expired"; }).length}
                   </span>
@@ -58,11 +58,11 @@ const Sidebar = () => {
               </div>
 
               <div className="col-md-12 col-4">
-                <div className="bg-color-gray border rounded-4 shadow-sm px-3 py-4 sideBar-small-text-forMobile">
+                <div className="bg-color-gray border rounded-4 shadow-sm px-3 py-4">
                   <div className="btn btn-warning rounded-circle mb-2">
                     <i className="fa-solid fa-bars-progress"></i>
                   </div>
-                  <p className="fw-bold mb-0 py-2 sideBar-text-hide-forMobile ">All Active Task</p>
+                  <p className="fw-bold mb-0 py-2 sideBar-text-hide-forMobile sideBar-small-text-forMobile ">All Active Task</p>
                   <span className="fw-bold fs-4">
                     {alltask.filter((task) => { return (task.status === "On Progress")+(task.status === "To Do");}).length}
                   </span>
@@ -70,11 +70,11 @@ const Sidebar = () => {
               </div>
 
               <div className="col-md-12 col-4">
-                <div className="bg-color-gray border rounded-4 shadow-sm p-4 sideBar-small-text-forMobile">
+                <div className="bg-color-gray border rounded-4 shadow-sm p-4">
                   <div className="btn btn-primary rounded-circle mb-2">
                     <i className="fa-regular fa-clock"></i>
                   </div>
-                  <p className="fw-bold mb-0 py-2 sideBar-text-hide-forMobile ">Completed Task</p>
+                  <p className="fw-bold mb-0 py-2 sideBar-text-hide-forMobile sideBar-small-text-forMobile ">Completed Task</p>
                   <span className="fw-bold fs-4">
                     {alltask.filter((task) => {return task.status === "Done";}).length}/
                   </span>

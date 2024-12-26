@@ -195,7 +195,7 @@ const TaskIteamsCard = (props) => {
 
           {/* ===================================== Remaining Card Parts================================================= */}
             </div>
-              <h4 className="fs-5 mb-0 pt-2">{capitalizeFirstLetter(task?.title.slice(0,18))}</h4>
+              <h4 className="fs-5 mb-0 pt-2 ">{capitalizeFirstLetter(task?.title.slice(0,18))}</h4>
               <p className="fs-6 mb-0 py-2">{capitalizeFirstLetter( task?.description.slice(0,100))}</p>
   
               <div className="dropdown m-0 p-0">

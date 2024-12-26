@@ -55,7 +55,7 @@ const Task = (props) => {
     <>
       {/* Main container for Task */}
       {/*============================================= for mobile view ==============================================*/}
-      <div className="container">
+      <div className="container-fluid">
           <div className=" mb-2 display-none-IncomputerScreen">
             <div className="row g-2">
               <div className="col-3 bg-color-gray rounded-md-4 rounded-3 py-2 px-3" onClick={showToDo}>
@@ -101,7 +101,11 @@ const Task = (props) => {
                 <div className="container scrollable task-container-content-height" >
                   <div className="row gap-2">
                     {/* each Task card */}
-                    {alltask.filter((task) => task.status === "To Do").map((task,i) => {
+                    {alltask.filter((task) => task.status === "To Do").length === 0 ? 
+                      <div className="d-flex justify-content-center py-5 rounded-4">
+                        <img src="/assets/img/ToDo.png" alt="NoTask" style={{height:"100px"}} /> 
+                      </div> : 
+                    alltask.filter((task) => task.status === "To Do").map((task,i) => {
                         return <TaskIteamsCard key={i} task={task}  />;
                       })}
                   </div>
@@ -125,7 +129,11 @@ const Task = (props) => {
                 <div className="container scrollable task-container-content-height">
                   <div className="row gap-2">
                     {/* each Task card */}
-                    {alltask.filter((task) => task.status === "On Progress").map((task,i) => {
+                    {alltask.filter((task) => task.status === "On Progress").length === 0 ? 
+                      <div className="d-flex justify-content-center py-5 rounded-4">
+                        <img src="/assets/img/Progress.png" alt="NoTask" style={{height:"100px"}} /> 
+                      </div> : 
+                    alltask.filter((task) => task.status === "On Progress").map((task,i) => {
                         return <TaskIteamsCard key={i} task={task} />;
                       })}
                   </div>
@@ -149,9 +157,12 @@ const Task = (props) => {
                 <div className=" container scrollable task-container-content-height"  >
                   <div className="row gap-2">
                     {/* each Task card */}
-                    {alltask.filter((task) => task.status === "Done").map((task,i) => {
-                        return <TaskIteamsCard key={i} task={task} />;
-                    })}
+                    {alltask.filter((task) => task.status === "Done").length === 0 ? 
+                      <div className="d-flex justify-content-center py-5 rounded-4">
+                        <img src="/assets/img/Done.png" alt="NoTask" style={{height:"100px"}} /> 
+                      </div> :  
+                      alltask.filter((task) => task.status === "Done").map((task,i) => {
+                        return <TaskIteamsCard key={i} task={task} />; })} 
                   </div>
                 </div>
               </div>
