@@ -28,12 +28,19 @@ Authentication: JSON Web Tokens (JWT) for secure access control.
 
 ## System Architecture 🌐
 
-
 ![diagram-export-1-1-2025-3_33_52-AM](https://github.com/user-attachments/assets/73138b8a-afd7-4750-afdb-a08db3bd636c)
-
 
 Frontend (React.js): The user interacts with the application through a responsive and dynamic interface. User actions (e.g., creating, updating, or deleting tasks) trigger API calls.
 
 Backend (Node.js & Express): REST APIs handle incoming HTTP requests, process data, and interact with the database.
 
 Database (MongoDB): Stores user details, task data, and application metadata securely and efficiently.
+
+## Task Manager
+[live](https://taskmanagersd.netlify.app/)
+![T1](https://github.com/user-attachments/assets/044c2a75-95fd-4352-b8e9-9aa669030f5f)
+![T2](https://github.com/user-attachments/assets/9cf67b08-0c55-4ef4-b6a7-485f94462318)
+![T3](https://github.com/user-attachments/assets/c025dab4-4c8c-43a1-92dd-a502a6f22a2e)
+![T4](https://github.com/user-attachments/assets/224490c7-de63-44ea-b571-ddf35b01397b)
+![T5](https://github.com/user-attachments/assets/8363c159-0f67-40e9-801d-60438403f103)
+
