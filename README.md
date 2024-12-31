@@ -1,4 +1,5 @@
 # TaskManager 📝
+[Live](https://taskmanagersd.netlify.app/)
 TaskManager is a full-stack web application built using the MERN stack (MongoDB, Express.js, React.js, and Node.js). 
 It provides an intuitive platform for users to efficiently manage their daily tasks, prioritize activities, and stay organized.
 
@@ -37,10 +38,10 @@ Backend (Node.js & Express): REST APIs handle incoming HTTP requests, process da
 Database (MongoDB): Stores user details, task data, and application metadata securely and efficiently.
 
 ## Task Manager
-[live](https://taskmanagersd.netlify.app/)
+![T5](https://github.com/user-attachments/assets/8363c159-0f67-40e9-801d-60438403f103)
 ![T1](https://github.com/user-attachments/assets/044c2a75-95fd-4352-b8e9-9aa669030f5f)
 ![T2](https://github.com/user-attachments/assets/9cf67b08-0c55-4ef4-b6a7-485f94462318)
 ![T3](https://github.com/user-attachments/assets/c025dab4-4c8c-43a1-92dd-a502a6f22a2e)
 ![T4](https://github.com/user-attachments/assets/224490c7-de63-44ea-b571-ddf35b01397b)
-![T5](https://github.com/user-attachments/assets/8363c159-0f67-40e9-801d-60438403f103)
+
 
