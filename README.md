@@ -28,7 +28,8 @@ Authentication: JSON Web Tokens (JWT) for secure access control.
 
 ## System Architecture 🌐
 
-![diagram-export-1-1-2025-3_33_52-AM](https://github.com/user-attachments/assets/73138b8a-afd7-4750-afdb-a08db3bd636c)
+![diagram-export-1-1-2025-3_59_10-AM](https://github.com/user-attachments/assets/586b9491-1783-4790-a4ca-9880f0d387c6)
+
 
 Frontend (React.js): The user interacts with the application through a responsive and dynamic interface. User actions (e.g., creating, updating, or deleting tasks) trigger API calls.
 
